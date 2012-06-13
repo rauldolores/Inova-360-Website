@@ -1,0 +1,152 @@
+#Artes y Entretenimiento	
+Diversion nocturna
+Boliches
+Billares
+Casinos
+Teatros
+Rodeos
+Cines
+Hipodromos
+Estadios
+Autodromos
+Parques de diversiones
+Galerias
+Sitios historicos
+Museos
+Zoologicos
+Acuarios
+Festivales
+#Educacion
+Universidades
+Preparatorias y Bachilleratos
+Secundarias
+Primarias
+Jardines de niños / Kinder / Preescolar
+Escuelas
+Profesores particulares
+#Comida
+Taquerias
+Restaurantes
+Fondas / Comida corrida
+Cafeterias
+Panaderias
+Pastelerias
+Verdulerias, Frutas y Legumbres
+Heladerias
+Vendedores ambulantes
+#Aire libre
+Parques
+Granjas
+Cementerios
+Lagos
+Bosques
+Campos de Golf
+Jardines
+Playas
+Puentes
+Campos de tiro
+Lugares para Acampar
+#Transporte
+Estaciones de Metro
+Estaciones de Tren
+Taxis
+Estaciones de autobuses
+Aeropuertos
+Lanchas o Ferry
+Renta de autos	
+#Inmuebles y Hospedaje
+Cuartos en renta
+Moteles
+Hoteles
+Hostales
+Inmobiliarias
+#Tiendas
+Tiendas de Videojuegos
+Tiendas de Peliculas
+Tiendas de Juguetes
+Tiendas Deportivas
+Agencias de autos
+Tiendas de Mascotas
+Tiendas de Musica
+Tiendas para adultos
+Joyerias	
+Gasolineras
+Gaseras
+Florerias
+Papelerias
+Vinaterias
+Supermercados
+Tiendas de Conveniencia
+Tiendas de Electronicos
+Tiendas Departamentales
+Tiendas de ropa
+Librerias
+Dulcerias
+Tiendas de computo
+Abarrotes
+Farmacias
+Plazas comerciales
+Outlets	
+#Salud y Deportes
+Opticas
+Acupuntura
+Terapias fisicas
+Medicos
+Emergencias
+Hospitales
+Gimnasios
+Veterinarias
+Albercas
+Artes Marciales
+Canchas y Campos deportivos
+#Servicios en sitio
+Tatuadores
+Spas
+Esteticas
+Lavanderias
+Cafes internet
+Bancos
+Cajeros
+Mecanicos
+Estacionamientos
+Guarderias
+Lavado de Autos
+Servicios funerarios
+Reparaciones
+#Servicios profesionales
+Plomeros
+Pintores
+Electricistas
+Jardineros
+Diseñadores de interiores
+Proveedores de servicios de Television
+Ingenieros
+Abogados
+Contadores publicos
+Contadores privados
+Publicistas
+Arquitectos
+Diseñadores graficos
+Proveedores de Servicios de Internet
+Proveedores de telefonia
+Mercadologos
+Limpieza
+Investigacion privada
+Relaciones publicas
+Consultorias
+Niñeras
+Tecnologias de la Informacion / Computo
+Mensajerias
+Fotografos
+Vidrierias
+#Edificios y otras
+Iglesias
+Oficionas Postales
+Edificios de Gobierno
+Estaciones de policia
+Bomberos
+Juzgados
+Auditorios
+Corporativos / Oficinas ejecutivas
+Empresas industriales
+Bibliotecas

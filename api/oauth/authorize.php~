@@ -1,0 +1,88 @@
+<?php
+session_start();
+
+include_once "../../clases/Inova360API.inc.php";
+include_once "../../clases/Cookie.php";
+include_once "../../clases/Usuarios.php";
+
+$INOVA360 = new Inova360API();
+
+$CONSUMIDOR = $_GET['client_id'];
+$ALCANCE = $_GET['scope'];
+
+
+//Eliminar todos los tokens expirados o solo eliminar las del consumidor
+
+//Si el consumidor esta registrado en la BD
+//if(count($CONSUMIDOR) > 0)
+//{
+	//Si existe una session abierta
+	if(isset($_SESSION['ID']))
+	{
+		//Obtenemos el registro del token correspondiente a un usuario y un consumidor
+		$TOKEN = $INOVA360->validarConsumidor($CLIENT_ID, $_SESSION['ID']);
+
+		//Si el consumidor tiene acceso total a el API (Solo sitios propios)
+		if($TOKEN['accesoTotal']=='V')
+		{
+			//Se genera un nuevo token
+			$INOVA360->crearToken($CLIENT_ID, "all");
+			//Se redirecciona a la URL registrada
+			header("Location:" . $TOKEN['urlRedireccionar']);
+
+		}
+		else
+		{
+			//Se valida si el consumidor tiene permisos para este usuario
+			if($this->checkScope(explode(",",$TOKEN['alcance']), explode(",",$ALCANCE)))
+			{
+				//Se genera un nuevo token
+				$INOVA360->crearToken($CLIENT_ID, $scope);
+				//Se redirecciona a la URL registrada
+				header("Location:" . $CONSUMIDOR['urlRedireccionar']);			
+			}else{
+				//Continuamos con la aplicacion mostrando el codigo html y el form de autorizacion
+			}
+
+		}
+	}
+	else
+	{
+		//Verificar si existen cookies de usuario
+		if($Cookie::Existe("ID"))
+		{
+			$USUARIO = new Usarios();
+			$USUARIO->forzarLogin($Cookie::Obtener("ID"));
+			header("Location: " . $_SERVER['PHP_SELF']);
+		}
+		else
+		{
+			header("Location: login.php");
+		}
+	}
+	/*if ($_POST) {
+	  $oauth->finishClientAuthorization($_POST["accept"] == "Yep", $_POST);
+	}
+	$_GET['client_id'] = new MongoId($_GET['client_id']);
+	$auth_params = $oauth->getAuthorizeParams();*/
+
+//}else{
+//	echo "Acceso incorrecto.";
+//	die();
+//}
+?>
+<html>
+  <head>Authorize</head>
+  <body>
+    <form method="post" action="authorize.php">
+      <?php foreach ($auth_params as $k => $v) { ?>
+      <input type="hidden" name="<?php echo $k ?>" value="<?php echo $v ?>" />
+      <?php } ?>
+      Do you authorize the app to do its thing?
+      <p>
+        <input type="submit" name="accept" value="Yep" />
+        <input type="submit" name="accept" value="Nope" />
+      </p>
+    </form>
+  </body>
+</html>

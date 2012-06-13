@@ -1,0 +1,11 @@
+# Programacion del CRON para ejecutar procesos a determinada hora
+#
+#   MN     - MINUTOS (0-59)
+#   HR     - HORAS   (0-23)
+#   DIA    - DIAS    (1-31)
+#   MES    - MESES   (1-12)
+#   D/S    - DIA/SEMANA (0-6 0=DOMINGO)
+#
+# MN HR DIA MES D/S COMANDO/BATCH
+# ---------------------------------------------------------
+  00 01  *   *   *  /RUTA/cargaPaises.sh
