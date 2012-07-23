@@ -18,7 +18,7 @@
 <div class="container">
 		
 		<div  class="span-12" style="height: 150px;" >
-	<div id="homeHeader" style="float:left"><a href="servicios.php"><img src="media/imagenes/logo.gif"></a></div>
+	<div id="homeHeader" style="float:left"><a href="index.php"><img src="media/imagenes/logo.gif"></a></div>
 	<div style="margin-top: 30px; float:right; text-align:right;">	
 	<span style="font-size: 16px;"><a href="nuestros_proyectos.php">nuestros proyectos</a> | <a href="ayudame.php">ayudame que yo te ayudare</a></span><br/>
 	<span style="font-size: 60px;">software libre</span>
@@ -33,99 +33,40 @@
 	</div>
 	<div id="homeOptions" class="container" style="margin-top: 0px;">
 	
-	<div style= "height: 300px; padding: 30px;">
-	<span style="font-size: 18px;">Te ofrecemos una disculpa</span>. Esta pagina aun se esta desarrollando.
-	</div>
-
-	<!--PRIMERA LINEA-->
+	<div style= "padding: 30px;">
 	
-		<div class="span-12">
-			<div class="span-3 quarter">
-				<p>Servicios</p>
-				<ul style= "border-top: 10px solid #4B8EFB;">
-					<li style="height: 30px; text-align:center;font-size: 8px;">
-						<h3><a href="servicios.php">Utiliza nuestro software en tu empresa</a></h3>
-						
-					</li>
-				</ul>
-			</div>
-						<div class="span-3 quarter">
-				<p>Publicidad</p>
+	<h2>Conocimiento libre en favor del progreso tecnologico</h2>
+	<br/><br/>
+	<span style="font-size: 28px;color: #4B8EFB;">
+	Amamos el conocimiento libre
+	</span>
+	<br/><br/>
+	<p>
+	En inova 360 tenemos desarrolladores apasionados y colaboradores entusiastas por compartir lo que hacen con el resto del mundo. Nuestro software es construido usando estandares abiertos por lo que contribuimos a menudo con la comunidad.
+	</p><br/>
+	
+<p>		
+El enfoque de código abierto de Inova360 rompe el modelo tradicional de propiedad mediante el suministro de soluciones de software abierto, innovador y de gran alcance con la flexibilidad necesaria para satisfacer las necesidades de todas las organizaciones.
+</p><br/>
+<p>
+Al publicar el código de los módulos de nuestras aplicaciones bajo la Licencia Pública GNU o documentos bajo Creative Commons, Inova360 ofrece a la comunidad la oportunidad de mejorar el producto y que estas puedan beneficiar a todo el mundo.
+</p><br/>
+<p>
+Sin embargo, en Inova360 no dependemos únicamente de la comunidad para mejoras de nuestros productos, la empresa tiene un equipo que participa en los ciclos de desarrollo de futuras versiones y se compromete a solucionar los problemas a medida que se detectan.
+</p><br/>
+<p>
+En la selección de PHP / JS como lenguaje de desarrollo de soluciones de Inova360, nos comprometemos con el soporte de estándares abiertos que garantizan la solidez de nuestros productos y servicios.
+</p>
+<br/><br/><br/>
+<span style="font-size: 28px;color: #4B8EFB;">
+Nuestras aportaciones:
+</span>
+<br/><br/>
+<ul>
+<li>Proximamente</li>
+</ul>	</div>
 
-				<ul style= "border-top: 10px solid #DA5B4B;">
-					<li style="height: 30px; text-align:center;font-size: 8px;">
-						<h3><a href="publicidad.php">Publicidad social efectiva</a></h3>
-						
-					</li>
-				</ul>
-
-			</div>
-			<div class="span-3 quarter">
-				<p>Responsabilidad social</p>
-				<ul style= "border-top: 10px solid #830701;">
-					<li style="height: 30px; text-align:center;font-size: 8px;">
-						<h3><a href="responsabilidad_social.php">Proyectos en favor de la sociedad</a></h3>
-						
-					</li>
-				</ul>
-			</div>	
-		<div class="span-3 quarter last newsletter">
-				<p>Software libre</p>
-				<ul style= "border-top: 10px solid #DFFF7D;">
-					<li style="height: 30px; text-align:center; font-size: 8px;">
-
-						<h3><a href="software_libre.php">Impulsando el crecimiento tecnologico</a></h3>
-						
-					</li>
-				</ul>				</ul>
-			</div>
-		</div>
-				
-		
-		<!-- SEGUNDA LINEA-->
-		
-		<div class="span-12">
-			<div class="span-3 quarter">
-				<p>Estadisticas</p>
-				<ul >
-					<li style="height: 30px; text-align:center;font-size: 8px;">
-						<h3><a href="estadisticas.php">Metricas para medir nuestro impacto</a></h3>
-						
-					</li>
-				</ul>
-			</div>
-						<div class="span-3 quarter">
-				<p>Trabajo</p>
-
-				<ul >
-					<li style="height: 30px; text-align:center;font-size: 8px;">
-						<h3><a href="trabajo.php">Estamos buscando personas con tu talento</a></h3>
-						
-					</li>
-				</ul>
-
-			</div>
-			<div class="span-3 quarter">
-				<p>Quienes somos</p>
-				<ul >
-					<li style="height: 30px; text-align:center;font-size: 8px;">
-						<h3><a href="quienes_somos.php">Los responsables de guiar esta iniciativa</a></h3>
-						
-					</li>
-				</ul>
-			</div>	
-		<div class="span-3 quarter last newsletter">
-				<p>Contactanos</p>
-				<ul >
-					<li style="height: 30px; text-align:center;font-size: 8px;">
-						<h3><a href="contactanos.php">Nos encantara escucharte</a></h3>
-						
-					</li>
-				</ul>				</ul>
-			</div>
-		</div>
-		
-		
+<?php include('bloques/menu_inferior.php'); ?>		
 		
 		
 	</div>	

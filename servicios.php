@@ -18,7 +18,7 @@
 <div class="container">
 		
 		<div  class="span-12" style="height: 150px;" >
-	<div id="homeHeader" style="float:left"><a href="servicios.php"><img src="media/imagenes/logo.gif"></a></div>
+	<div id="homeHeader" style="float:left"><a href="index.php"><img src="media/imagenes/logo.gif"></a></div>
 	<div style="margin-top: 30px; float:right; text-align:right;">	
 	<span style="font-size: 16px;"><a href="nuestros_proyectos.php">nuestros proyectos</a> | <a href="ayudame.php">ayudame que yo te ayudare</a></span><br/>
 	<span style="font-size: 60px;">servicios</span>
@@ -33,98 +33,73 @@
 	</div>
 	<div id="homeOptions" class="container" style="margin-top: 0px;">
 	
-	<div style= "height: 300px; padding: 30px;">
-	<span style="font-size: 18px;">Te ofrecemos una disculpa</span>. Esta pagina aun se esta desarrollando.
+	<div style= "padding: 30px;">
+	
+	
+	
+	<h2>Nuestras aplicaciones son creadas con un claro objetivo</h2>
+	<br/><br/>	
+	<span style="font-size: 28px;color: #4B8EFB;">Hacer mas facil la vida de las personas</span><br/><br/>	
+	
+		<p>En el dia a dia todos realizamos diversas actividades que forman parte de nuestra vida, muchas de las cuales poco a poco se han hecho mas sencillas gracias a internet y a la penetracion de las tecnologias moviles en la mayoria de la poblacion. Han habiado grandes avances, pero creemos que aun pueden mejorarse y queremos ser parte de estas mejoras sin dejar de la lado la innovacion. Solo es el comienzo de un camino:</p>
+	<br/><br/>	
+		<ul>
+		<li>Conocer las tiendas comerciales abiertas en una hora determinada y que esten cercanas a mi</li>
+		<li>Consultar el menu de un restaurante sin necesidad de desplazarte</li>
+		<li>Realizar compras de cualquier producto sin necesidad de desplazarte</li>
+		<li>Estudios de calidad a traves de internet accesibles para toda la gente.</li>
+		<li>Comunicacion efectiva con tus contactos</li>
+		<li>Conocer tu estado de salud desde el lugar en el que estes</li>
+		<li>Controlar aparatos desde nuestros dispositivos moviles</li>
+		<li>Mayor movilidad</li>
+		<li>Seguridad virtual</li>
+		<li>Entre otros</li>
+		</ul>
+	<br/><br/>	
+	<span style="font-size: 28px;color: #4B8EFB;">Introducir el uso de la tecnologia en las actividades y procesos de las empresas</span>
+	<br/><br/>	
+		<p>Nuestras soluciones tecnologicas tambien tienen como objetivo el penetrar en las empresas donde hacen poco o nulo uso de los sistemas como apoyo a sus procesos. Si estas interesado en saber como obtener el mejor provecho de nuestras herramientas, puedes <a href="contactanos.php">contactarnos</a>:</p>
+	<br/><br/>	
+		<ul>
+		<li>Administracion de proyectos</li>
+		<li>CRM - Seguimiento a relaciones con clientes</li>
+		<li>ERP</li>
+		<li>Manejo de Recursos Humanos</li>
+		<li>Facturacion</li>
+		<li>Catalogos / Tiendas virtuales</li>
+		<li>Seguridad de la informacion</li>
+		<li>Listas de correo</li>
+		<li>Reclutamiento</li>
+		<li>Herramientas para atraccion de nuevos clientes</li>
+		</ul>
+	<br/><br/>	
+	<span style="font-size: 28px;color: #4B8EFB;">Colaborar con la generacion de soluciones a los problemas sociales</span>
+	<br/><br/>	
+		<p>No nos son ajenos los problemas de la sociedad y con cada proyecto intentamos apoyar a nuestra sociedad.</p>
+	<br/><br/>	
+	<ul>
+		<li>Educacion para todos</li>
+		<li>Mejores oportunidades laborales</li>
+		<li>Difusion de cultura en favor del Medio Ambiente</li>
+		<li>Apoyo tecnologico a Organizaciones Sociales</li>
+		<li>Impulso a nuevos proyectos	</li>
+	</ul>
+	<br/><br/>	
+<span style="font-size: 28px;color: #4B8EFB;">Publicitate en nuestros sitios</span>
+<br/><br/>	
+	<p>Te gustaria contactar publicidad en nuestros sitios. <a href="publicidad.php">Te invitamos a obtener mas informacion</a></p>
+<br/><br/>		
+<span style="font-size: 28px;color: #4B8EFB;">Proximamente</span>
+<br/><br/>	
+	<p>Siempre inovado, estamos preparando mas servicios  de los cuales de contaremos pronto.</p>
+<br/><br/>		
+<span style="font-size: 28px;color: #4B8EFB;">Otros</span>
+<br/><br/>	
+	<p>Crees que podemos ayudarte en algo mas. <a href="contactanos.php">Contactanos</a>.</p>
+	
 	</div>
 
-	<!--PRIMERA LINEA-->
-	
-		<div class="span-12">
-			<div class="span-3 quarter">
-				<p>Servicios</p>
-				<ul style= "border-top: 10px solid #4B8EFB;">
-					<li style="height: 30px; text-align:center;font-size: 8px;">
-						<h3><a href="servicios.php">Utiliza nuestro software en tu empresa</a></h3>
-						
-					</li>
-				</ul>
-			</div>
-						<div class="span-3 quarter">
-				<p>Publicidad</p>
-
-				<ul style= "border-top: 10px solid #DA5B4B;">
-					<li style="height: 30px; text-align:center;font-size: 8px;">
-						<h3><a href="publicidad.php">Publicidad social efectiva</a></h3>
-						
-					</li>
-				</ul>
-
-			</div>
-			<div class="span-3 quarter">
-				<p>Responsabilidad social</p>
-				<ul style= "border-top: 10px solid #830701;">
-					<li style="height: 30px; text-align:center;font-size: 8px;">
-						<h3><a href="responsabilidad_social.php">Proyectos en favor de la sociedad</a></h3>
-						
-					</li>
-				</ul>
-			</div>	
-		<div class="span-3 quarter last newsletter">
-				<p>Software libre</p>
-				<ul style= "border-top: 10px solid #DFFF7D;">
-					<li style="height: 30px; text-align:center; font-size: 8px;">
-
-						<h3><a href="software_libre.php">Impulsando el crecimiento tecnologico</a></h3>
-						
-					</li>
-				</ul>				</ul>
-			</div>
-		</div>
-				
-		
-		<!-- SEGUNDA LINEA-->
-		
-		<div class="span-12">
-			<div class="span-3 quarter">
-				<p>Estadisticas</p>
-				<ul >
-					<li style="height: 30px; text-align:center;font-size: 8px;">
-						<h3><a href="estadisticas.php">Metricas para medir nuestro impacto</a></h3>
-						
-					</li>
-				</ul>
-			</div>
-						<div class="span-3 quarter">
-				<p>Trabajo</p>
-
-				<ul >
-					<li style="height: 30px; text-align:center;font-size: 8px;">
-						<h3><a href="trabajo.php">Estamos buscando personas con tu talento</a></h3>
-						
-					</li>
-				</ul>
-
-			</div>
-			<div class="span-3 quarter">
-				<p>Quienes somos</p>
-				<ul >
-					<li style="height: 30px; text-align:center;font-size: 8px;">
-						<h3><a href="quienes_somos.php">Los responsables de guiar esta iniciativa</a></h3>
-						
-					</li>
-				</ul>
-			</div>	
-		<div class="span-3 quarter last newsletter">
-				<p>Contactanos</p>
-				<ul >
-					<li style="height: 30px; text-align:center;font-size: 8px;">
-						<h3><a href="contactanos.php">Nos encantara escucharte</a></h3>
-						
-					</li>
-				</ul>				</ul>
-			</div>
-		</div>
-		
+<?php include('bloques/menu_inferior.php'); ?>		
 		
 		
 		

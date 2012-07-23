@@ -1,4 +1,22 @@
-﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<?php
+	include("config.php");
+	include("librerias/php/aws/sdk.class.php");
+
+	$contenidoMail = "";
+	
+	if($_POST)
+	{
+		foreach($_POST as $key => $value)
+		{
+				$contenidoMail .= $key . "\n\n" . $value . "\n\n":
+		}
+		
+		$MAIL = new Mail($CONFIG_AWS);
+		
+		$MAIL->EnviarCorreo("raul.dolores@gmail.com", "CONTACTO - Inova360", $contenidoMail)
+	}
+?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
 	<title>Inova 360 - Ideas que cambian el mundo</title>
@@ -18,7 +36,7 @@
 <div class="container">
 		
 		<div  class="span-12" style="height: 150px;" >
-	<div id="homeHeader" style="float:left"><a href="servicios.php"><img src="media/imagenes/logo.gif"></a></div>
+	<div id="homeHeader" style="float:left"><a href="index.php"><img src="media/imagenes/logo.gif"></a></div>
 	<div style="margin-top: 30px; float:right; text-align:right;">	
 	<span style="font-size: 16px;"><a href="nuestros_proyectos.php">nuestros proyectos</a> | <a href="ayudame.php">ayudame que yo te ayudare</a></span><br/>
 	<span style="font-size: 60px;">contactanos</span>
@@ -36,109 +54,20 @@
 	<div style= "height: 300px; padding: 30px;">
 
 <div class="span-9 content">
-<h3>Nombre</h3>
-<p><input type="text" name="name" id="name"></p>
-<h3>Empresa</h3>
-<p><input type="text" name="business" id="business"></p>
-<h3>Email</h3>
-<p><input type="text" name="email" id="email"></p>
-<h3>Telefono</h3>
-<p><input type="text" name="phone" id="phone"></p>
-<h3>Mensaje</h3>
-<p><textarea cols="50" rows="10" id="message"></textarea></p>
+<h2>Ponte en contacto con nosotros</h2>
+<span>Jardines de la Hda., Cuautitlan Izcalli, Mexico, Mexico</span><br/><br/>
+<input type="text" name="name" id="name" placeholder="nombre" style="padding: 5px;"><br/>
+<input type="text" name="email" id="email" placeholder="email" style="padding: 5px;"><br/>
+<input type="text" name="phone" id="phone" placeholder="telefono" style="padding: 5px;"><br/>
+<p><textarea cols="50" rows="10" name="message" id="message" style="padding: 5px;" placeholder="mensaje o razon de contacto"></textarea></p>
 
-<p><input value="Enviar datos" type="button" onClick="sendEmail(); return false;"></p>
+<p><input value="Enviar datos" type="submit" style="padding: 10px;"></p>
 </div>		
 	
 	</div>
 
-	<!--PRIMERA LINEA-->
-	
-		<div class="span-12">
-			<div class="span-3 quarter">
-				<p>Servicios</p>
-				<ul style= "border-top: 10px solid #4B8EFB;">
-					<li style="height: 30px; text-align:center;font-size: 8px;">
-						<h3><a href="servicios.php">Utiliza nuestro software en tu empresa</a></h3>
-						
-					</li>
-				</ul>
-			</div>
-						<div class="span-3 quarter">
-				<p>Publicidad</p>
 
-				<ul style= "border-top: 10px solid #DA5B4B;">
-					<li style="height: 30px; text-align:center;font-size: 8px;">
-						<h3><a href="publicidad.php">Publicidad social efectiva</a></h3>
-						
-					</li>
-				</ul>
-
-			</div>
-			<div class="span-3 quarter">
-				<p>Responsabilidad social</p>
-				<ul style= "border-top: 10px solid #830701;">
-					<li style="height: 30px; text-align:center;font-size: 8px;">
-						<h3><a href="responsabilidad_social.php">Proyectos en favor de la sociedad</a></h3>
-						
-					</li>
-				</ul>
-			</div>	
-		<div class="span-3 quarter last newsletter">
-				<p>Software libre</p>
-				<ul style= "border-top: 10px solid #DFFF7D;">
-					<li style="height: 30px; text-align:center; font-size: 8px;">
-
-						<h3><a href="software_libre.php">Impulsando el crecimiento tecnologico</a></h3>
-						
-					</li>
-				</ul>				</ul>
-			</div>
-		</div>
-				
-		
-		<!-- SEGUNDA LINEA-->
-		
-		<div class="span-12">
-			<div class="span-3 quarter">
-				<p>Estadisticas</p>
-				<ul >
-					<li style="height: 30px; text-align:center;font-size: 8px;">
-						<h3><a href="estadisticas.php">Metricas para medir nuestro impacto</a></h3>
-						
-					</li>
-				</ul>
-			</div>
-						<div class="span-3 quarter">
-				<p>Trabajo</p>
-
-				<ul >
-					<li style="height: 30px; text-align:center;font-size: 8px;">
-						<h3><a href="trabajo.php">Estamos buscando personas con tu talento</a></h3>
-						
-					</li>
-				</ul>
-
-			</div>
-			<div class="span-3 quarter">
-				<p>Quienes somos</p>
-				<ul >
-					<li style="height: 30px; text-align:center;font-size: 8px;">
-						<h3><a href="quienes_somos.php">Los responsables de guiar esta iniciativa</a></h3>
-						
-					</li>
-				</ul>
-			</div>	
-		<div class="span-3 quarter last newsletter">
-				<p>Contactanos</p>
-				<ul >
-					<li style="height: 30px; text-align:center;font-size: 8px;">
-						<h3><a href="contactanos.php">Nos encantara escucharte</a></h3>
-						
-					</li>
-				</ul>				</ul>
-			</div>
-		</div>
+	<?php include('bloques/menu_inferior.php'); ?>
 		
 		
 		

@@ -18,7 +18,7 @@
 <div class="container">
 		
 		<div  class="span-12" style="height: 150px;" >
-	<div id="homeHeader" style="float:left"><a href="servicios.php"><img src="media/imagenes/logo.gif"></a></div>
+	<div id="homeHeader" style="float:left"><a href="index.php"><img src="media/imagenes/logo.gif"></a></div>
 	<div style="margin-top: 30px; float:right; text-align:right;">	
 	<span style="font-size: 16px;"><a href="nuestros_proyectos.php">nuestros proyectos</a> | <a href="ayudame.php">ayudame que yo te ayudare</a></span><br/>
 	<span style="font-size: 60px;">quienes somos</span>
@@ -32,100 +32,64 @@
 					</h3>		</div>
 	</div>
 	<div id="homeOptions" class="container" style="margin-top: 0px;">
+	<br/><br/>
+<h2>Sobre nuestra empresa</h2>
 	
-	<div style= "height: 300px; padding: 30px;">
-	<span style="font-size: 18px;">Te ofrecemos una disculpa</span>. Esta pagina aun se esta desarrollando.
-	</div>
+<br/><br/>	
+<span style="font-size: 28px;color: #4B8EFB;">
+Mision
+</span>
+<p>Trabajamos para impresionarte con nuestra visión del mundo, desarrollando y construyendo tecnologías inteligentes que evolucionen nuestras vidas. Al mismo tiempo que creamos un espacio adecuado para el crecimiento profesional y personal de todos nuestros colaboradores.</p>
+<br/><br/>
+<span style="font-size: 28px;color: #4B8EFB;">
+Vision
+</span>
+<p>Servir cada vez a un mayor número de comunidades como líder, al ofrecer la mejor tecnologia que faciliten nuestras vidas y el mejor lugar para trabajar para nuestros colaboradores, derivado de una constante innovación.</p>
+<br/><br/>
+<span style="font-size: 28px;color: #4B8EFB;">
+Equipo
+</span>
 
-	<!--PRIMERA LINEA-->
-	
-		<div class="span-12">
-			<div class="span-3 quarter">
-				<p>Servicios</p>
-				<ul style= "border-top: 10px solid #4B8EFB;">
-					<li style="height: 30px; text-align:center;font-size: 8px;">
-						<h3><a href="servicios.php">Utiliza nuestro software en tu empresa</a></h3>
-						
-					</li>
-				</ul>
-			</div>
-						<div class="span-3 quarter">
-				<p>Publicidad</p>
 
-				<ul style= "border-top: 10px solid #DA5B4B;">
-					<li style="height: 30px; text-align:center;font-size: 8px;">
-						<h3><a href="publicidad.php">Publicidad social efectiva</a></h3>
-						
-					</li>
-				</ul>
+<br/><br/>
+<img src="http://graph.facebook.com/raul.dolores/picture?type=large" border="0" align="left" style="margin: 20px;">
+<br/><br/>
+<span style="font-weight: bold; font-size: 15px;">
+CEO (Chief Excecutive Officer)
+</span>	
+<br/><br/>
+Raul Dolores Calzadilla
+<br/><br/>
+Estudios: Lic. Matematicas Aplicadas y Computacion - Estudiante de Lic. Administracion.
+<br/><br/>
+Empresas en las que ha trabajado:
+IBM Mexico
+- Kimberly Clark de Mexico
+- Banco Azteca
+- TV Azteca
+- Ford
+- Burguer King (Alsea)
+- Telefonica Movistar
+<br/><br/>
+Actividades en la que se ha desempeñado:
+- Project Manager
+- Technical Leader
+- Developer
+- Analyst
+- Architect
+- Technical Support.
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
-			</div>
-			<div class="span-3 quarter">
-				<p>Responsabilidad social</p>
-				<ul style= "border-top: 10px solid #830701;">
-					<li style="height: 30px; text-align:center;font-size: 8px;">
-						<h3><a href="responsabilidad_social.php">Proyectos en favor de la sociedad</a></h3>
-						
-					</li>
-				</ul>
-			</div>	
-		<div class="span-3 quarter last newsletter">
-				<p>Software libre</p>
-				<ul style= "border-top: 10px solid #DFFF7D;">
-					<li style="height: 30px; text-align:center; font-size: 8px;">
+<span style="font-weight: bold; font-size: 15px;">
+Colaboradores:
+</span>
+<br/><br/>
+Tu nombre puede aparecer aqui. <a href="trabajo.php">¿Te gustaria trabajar con nosotros?</a>
+<br/><br/>
+<br/><br/>
 
-						<h3><a href="software_libre.php">Impulsando el crecimiento tecnologico</a></h3>
-						
-					</li>
-				</ul>				</ul>
-			</div>
-		</div>
-				
-		
-		<!-- SEGUNDA LINEA-->
-		
-		<div class="span-12">
-			<div class="span-3 quarter">
-				<p>Estadisticas</p>
-				<ul >
-					<li style="height: 30px; text-align:center;font-size: 8px;">
-						<h3><a href="estadisticas.php">Metricas para medir nuestro impacto</a></h3>
-						
-					</li>
-				</ul>
-			</div>
-						<div class="span-3 quarter">
-				<p>Trabajo</p>
 
-				<ul >
-					<li style="height: 30px; text-align:center;font-size: 8px;">
-						<h3><a href="trabajo.php">Estamos buscando personas con tu talento</a></h3>
-						
-					</li>
-				</ul>
-
-			</div>
-			<div class="span-3 quarter">
-				<p>Quienes somos</p>
-				<ul >
-					<li style="height: 30px; text-align:center;font-size: 8px;">
-						<h3><a href="quienes_somos.php">Los responsables de guiar esta iniciativa</a></h3>
-						
-					</li>
-				</ul>
-			</div>	
-		<div class="span-3 quarter last newsletter">
-				<p>Contactanos</p>
-				<ul >
-					<li style="height: 30px; text-align:center;font-size: 8px;">
-						<h3><a href="contactanos.php">Nos encantara escucharte</a></h3>
-						
-					</li>
-				</ul>				</ul>
-			</div>
-		</div>
-		
-		
+<?php include('bloques/menu_inferior.php'); ?>		
 		
 		
 	</div>	
