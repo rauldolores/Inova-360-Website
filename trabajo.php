@@ -8,12 +8,12 @@
 	{
 		foreach($_POST as $key => $value)
 		{
-				$contenidoMail .= $key . "\n\n" . $value . "\n\n":
+				$contenidoMail .= $key . "\n\n" . $value . "\n\n";
 		}
 		
 		$MAIL = new Mail($CONFIG_AWS);
 		
-		$MAIL->EnviarCorreo("raul.dolores@gmail.com", "TRABAJO - Inova360", $contenidoMail)
+		$MAIL->EnviarCorreo("raul.dolores@gmail.com", "TRABAJO - Inova360", $contenidoMail);
 	}
 ?>
 
