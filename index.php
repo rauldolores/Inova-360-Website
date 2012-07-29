@@ -26,7 +26,7 @@
 </div>
 	<div id="mission">
 		<div class="container">		
-					<h3>Somos – <span class="yellow">Inova 360</span> – una empresa enfocada a la incubacion y desarrollo de tecnologias que faciliten nuestras labores diarias, siempre con foco a dejar una huella social , estamos ubicados en Cuautitlan Izcalli, M&eacute;xico. Revisa nuestro <a href="portafolio.php">Portafolio de Proyectos</a> o descubre la variedad de <a href="servicios.php">Servicios</a> que ofrecemos. En nuestro <a href="nosotros.php" title="Nosotros">Perfil</a> puedes conocer mas sobre nosotros. <a href="contacto.php">Contactanos</a> ahora. 
+					<h3>Somos – <span class="yellow">Inova 360</span> – una empresa enfocada a la incubacion y desarrollo de tecnologias que faciliten nuestras labores diarias, siempre con foco a dejar una huella social , estamos ubicados en Cuautitlan Izcalli, M&eacute;xico. Revisa nuestra <a href="nuestros_proyectos.php">Lista de Proyectos</a> o descubre la variedad de <a href="servicios.php">Servicios</a> que ofrecemos. En nuestro <a href="quienes_somos.php">Perfil</a> puedes conocer mas sobre nosotros. <a href="contactanos.php">Contactanos</a> ahora. 
 					</h3>		</div>
 	</div>
 	<div id="homeOptions" class="container">
