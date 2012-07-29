@@ -18,7 +18,7 @@
 <div class="container">
 		
 		<div  class="span-12" style="height: 150px;" >
-	<div id="homeHeader" style="float:left"><a href="servicios.php"><img src="media/imagenes/logo.gif"></a></div>
+	<div id="homeHeader" style="float:left"><a href="index.php"><img src="media/imagenes/logo.gif"></a></div>
 	<div style="margin-top: 30px; float:right; text-align:right;">	
 	<span style="font-size: 16px;"><a href="nuestros_proyectos.php">nuestros proyectos</a> | <a href="ayudame.php">ayudame que yo te ayudare</a></span><br/>
 	<span style="font-size: 60px;">publicidad</span>
@@ -33,99 +33,25 @@
 	</div>
 	<div id="homeOptions" class="container" style="margin-top: 0px;">
 	
-	<div style= "height: 300px; padding: 30px;">
-	<span style="font-size: 18px;">Te ofrecemos una disculpa</span>. Esta pagina aun se esta desarrollando.
+-	<div style= "padding: 30px;">
+<h2>Realiza una inversion y no un gasto</h2>
+<br/><br/>
+<span style="font-size: 28px;color: #4B8EFB;">
+	Publicidad en nuestros sitios
+</span>
+<br/><br/>
+
+	<p>Tenemos diversos sitios con un publico objetivo diferente y conocemos los gustos de cada uno de nuestros usuarios para asegurarnos que solo les mostraremos publicidad de su interes a nuestros usuarios al mismo tiempo que aseguramos a nuestros anunciantes que su publicidad tendra una mayor efectividad. <a href="contactanos.php">Contactanos para mas detalles</a>.</p>
+<br/><br/>
+<span style="font-size: 28px;color: #4B8EFB;">
+Te gustaria invertir en nuestra empresa
+</span>
+<br/><br/>
+	<p>Somos una startup que recientemente ha comenzado operaciones y que esta en constante crecimeinto. Estamos buscando inversionistas que apoten capital a la empresa a cambio de un porcentaje de acciones. Queremos acelerar el crecimiento de la empresa. <a href="ayudame.php">Te damos mas informacion</a>.</p>
+
 	</div>
 
-	<!--PRIMERA LINEA-->
-	
-		<div class="span-12">
-			<div class="span-3 quarter">
-				<p>Servicios</p>
-				<ul style= "border-top: 10px solid #4B8EFB;">
-					<li style="height: 30px; text-align:center;font-size: 8px;">
-						<h3><a href="servicios.php">Utiliza nuestro software en tu empresa</a></h3>
-						
-					</li>
-				</ul>
-			</div>
-						<div class="span-3 quarter">
-				<p>Publicidad</p>
-
-				<ul style= "border-top: 10px solid #DA5B4B;">
-					<li style="height: 30px; text-align:center;font-size: 8px;">
-						<h3><a href="publicidad.php">Publicidad social efectiva</a></h3>
-						
-					</li>
-				</ul>
-
-			</div>
-			<div class="span-3 quarter">
-				<p>Responsabilidad social</p>
-				<ul style= "border-top: 10px solid #830701;">
-					<li style="height: 30px; text-align:center;font-size: 8px;">
-						<h3><a href="responsabilidad_social.php">Proyectos en favor de la sociedad</a></h3>
-						
-					</li>
-				</ul>
-			</div>	
-		<div class="span-3 quarter last newsletter">
-				<p>Software libre</p>
-				<ul style= "border-top: 10px solid #DFFF7D;">
-					<li style="height: 30px; text-align:center; font-size: 8px;">
-
-						<h3><a href="software_libre.php">Impulsando el crecimiento tecnologico</a></h3>
-						
-					</li>
-				</ul>				</ul>
-			</div>
-		</div>
-				
-		
-		<!-- SEGUNDA LINEA-->
-		
-		<div class="span-12">
-			<div class="span-3 quarter">
-				<p>Estadisticas</p>
-				<ul >
-					<li style="height: 30px; text-align:center;font-size: 8px;">
-						<h3><a href="estadisticas.php">Metricas para medir nuestro impacto</a></h3>
-						
-					</li>
-				</ul>
-			</div>
-						<div class="span-3 quarter">
-				<p>Trabajo</p>
-
-				<ul >
-					<li style="height: 30px; text-align:center;font-size: 8px;">
-						<h3><a href="trabajo.php">Estamos buscando personas con tu talento</a></h3>
-						
-					</li>
-				</ul>
-
-			</div>
-			<div class="span-3 quarter">
-				<p>Quienes somos</p>
-				<ul >
-					<li style="height: 30px; text-align:center;font-size: 8px;">
-						<h3><a href="quienes_somos.php">Los responsables de guiar esta iniciativa</a></h3>
-						
-					</li>
-				</ul>
-			</div>	
-		<div class="span-3 quarter last newsletter">
-				<p>Contactanos</p>
-				<ul >
-					<li style="height: 30px; text-align:center;font-size: 8px;">
-						<h3><a href="contactanos.php">Nos encantara escucharte</a></h3>
-						
-					</li>
-				</ul>				</ul>
-			</div>
-		</div>
-		
-		
+<?php include('bloques/menu_inferior.php'); ?>		
 		
 		
 	</div>	

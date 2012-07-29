@@ -18,7 +18,7 @@
 <div class="container">
 		
 		<div  class="span-12" style="height: 150px;" >
-	<div id="homeHeader" style="float:left"><a href="servicios.php"><img src="media/imagenes/logo.gif"></a></div>
+	<div id="homeHeader" style="float:left"><a href="index.php"><img src="media/imagenes/logo.gif"></a></div>
 	<div style="margin-top: 30px; float:right; text-align:right;">	
 	<span style="font-size: 16px;"><a href="nuestros_proyectos.php">nuestros proyectos</a> | <a href="ayudame.php">ayudame que yo te ayudare</a></span><br/>
 	<span style="font-size: 60px;">responsabilidad social</span>
@@ -28,105 +28,98 @@
 </div>
 	<div id="mission">
 		<div class="container">		
-					<h3>Somos – <span class="yellow">Inova 360</span> – una empresa enfocada a la incubacion y desarrollo de tecnologias que faciliten nuestras labores diarias, siempre con foco a dejar una huella social , estamos ubicados en Cuautitlan Izcalli, M&eacute;xico. 
+					<h3>Somos – <span class="yellow">Inova 360</span> – una empresa enfocada a la incubacion y desarrollo de tecnologias que faciliten nuestras labores diarias, siempre con foco a dejar una huella social, e impulsando el mejoramiento de la calidad de vida de las personas. 
 					</h3>		</div>
 	</div>
 	<div id="homeOptions" class="container" style="margin-top: 0px;">
 	
-	<div style= "height: 300px; padding: 30px;">
-	<span style="font-size: 18px;">Te ofrecemos una disculpa</span>. Esta pagina aun se esta desarrollando.
+	<div style= " padding: 30px;">
+	
+<h2>
+En un mundo mas inteligente cada ciudad es una oportunidad
+</h2>
+<br/><br/>
+<p>
+Un mundo más inteligente, aunque es global por definición, sucede al nivel industrial. Está impulsado por organizaciones con visión de futuro que comparten una perspectiva en común: ven el cambio como una oportunidad, y actúan de acuerdo a las posibilidades, no sólo reaccionan a los problemas.
+</p>	
+<span style="font-size: 28px; color: #4B8EFB;">
+¿Qué significa ser más inteligente?
+</span>
+<br/><br/>	
+<p>
+Se están capturando datos como nunca se hizo antes. Los datos revelan todo, desde patrones grandes y sistémicos de mercados globales, flujos de trabajo, infraestructuras nacionales y sistemas naturales, hasta la ubicación, temperatura, seguridad y condición de todos los elementos de una cadena de abastecimiento global. Mediante los medios sociales, miles de millones de clientes, ciudadanos, estudiantes y pacientes nos dicen lo que piensan, lo que les gusta y quieren, lo que están experimentando, en tiempo real.
+La inteligencia, no la intuición, impulsa la innovación
+Pero los datos por sí mismos no son útiles. El aspecto más importante de los sistemas más inteligentes es el conocimiento accionable que los datos pueden revelar.
+</p>
+<br/><br/>
+<span style="font-size: 28px;color: #4B8EFB;">
+EDUCACION
+</span><br/>
+<span style="font-size: 18px;">
+Una nueva escuela del pensamiento para un planeta mas inteligente
+</span>
+<br/><br/><br/>
+<span style="font-size: 28px;color: #4B8EFB;">
+NEGOCIOS
+</span><br/>
+<span style="font-size: 18px;">
+Si nuestros procesos pueden volverse mas previsibles, agiles y colaborativos, podemos aumentar la productividad empresarial
+</span>
+<br/><br/><br/>
+<span style="font-size: 28px;color: #4B8EFB;">
+CIUDADES
+</span><br/>
+<span style="font-size: 18px;">
+Barrios seguros. Escuelas de calidad. Alojamientos accesibles. Tráfico que fluye. Todo es posible.
+</span>
+
+<br/><br/><br/>
+<span style="font-size: 28px;color: #4B8EFB;">
+COMERCIO
+</span><br/>
+<span style="font-size: 18px;">
+Comercio mas inteligente y énfasis en la fidelización de los clientes, la racionalización de la cadena de suministro y la maximización de la rentabilidad.
+</span>
+
+<br/><br/><br/>
+<span style="font-size: 28px;color: #4B8EFB;">
+SALUD
+</span><br/>
+<span style="font-size: 18px;">
+Para construir un sistema más inteligente, las soluciones de atención sanitaria deben estar instrumentadas, interconectadas e inteligentes
+</span>
+<br/><br/><br/>	
+<span style="font-size: 28px;color: #4B8EFB;">
+SOCIAL BUSINESS
+</span><br/>
+<span style="font-size: 18px;">
+Las personas no hacen negocios con empresas. Las personas hacen negocios con personas. Aquí explicamos por qué y cómo transformarse en una Social Business
+</span>
+<br/><br/><br/>
+<span style="font-size: 28px;color: #4B8EFB;">
+SUSTENTABILIDAD
+</span><br/>
+<span style="font-size: 18px;">
+Sustentabilidad en un mundo inteligente
+</span>
+<br/><br/><br/>
+
+<img src="media/imagenes/ar__es_ar__education__education_technology_info2__530x170.jpg" border="0">
+<img src="media/imagenes/ar__es_ar__work__smart_work_facts__350x121.jpg" border="0">
+
+<br/><br/><br/><br/><br/>
+
+<span style="font-size: 28px; color: #FB4F14;">
+¡Construyamos un planeta mas inteligente!
+</span>
+<br/><br/><br/><br/><br/><br/>
+
+	
+	
+	
 	</div>
 
-	<!--PRIMERA LINEA-->
-	
-		<div class="span-12">
-			<div class="span-3 quarter">
-				<p>Servicios</p>
-				<ul style= "border-top: 10px solid #4B8EFB;">
-					<li style="height: 30px; text-align:center;font-size: 8px;">
-						<h3><a href="servicios.php">Utiliza nuestro software en tu empresa</a></h3>
-						
-					</li>
-				</ul>
-			</div>
-						<div class="span-3 quarter">
-				<p>Publicidad</p>
-
-				<ul style= "border-top: 10px solid #DA5B4B;">
-					<li style="height: 30px; text-align:center;font-size: 8px;">
-						<h3><a href="publicidad.php">Publicidad social efectiva</a></h3>
-						
-					</li>
-				</ul>
-
-			</div>
-			<div class="span-3 quarter">
-				<p>Responsabilidad social</p>
-				<ul style= "border-top: 10px solid #830701;">
-					<li style="height: 30px; text-align:center;font-size: 8px;">
-						<h3><a href="responsabilidad_social.php">Proyectos en favor de la sociedad</a></h3>
-						
-					</li>
-				</ul>
-			</div>	
-		<div class="span-3 quarter last newsletter">
-				<p>Software libre</p>
-				<ul style= "border-top: 10px solid #DFFF7D;">
-					<li style="height: 30px; text-align:center; font-size: 8px;">
-
-						<h3><a href="software_libre.php">Impulsando el crecimiento tecnologico</a></h3>
-						
-					</li>
-				</ul>				</ul>
-			</div>
-		</div>
-				
-		
-		<!-- SEGUNDA LINEA-->
-		
-		<div class="span-12">
-			<div class="span-3 quarter">
-				<p>Estadisticas</p>
-				<ul >
-					<li style="height: 30px; text-align:center;font-size: 8px;">
-						<h3><a href="estadisticas.php">Metricas para medir nuestro impacto</a></h3>
-						
-					</li>
-				</ul>
-			</div>
-						<div class="span-3 quarter">
-				<p>Trabajo</p>
-
-				<ul >
-					<li style="height: 30px; text-align:center;font-size: 8px;">
-						<h3><a href="trabajo.php">Estamos buscando personas con tu talento</a></h3>
-						
-					</li>
-				</ul>
-
-			</div>
-			<div class="span-3 quarter">
-				<p>Quienes somos</p>
-				<ul >
-					<li style="height: 30px; text-align:center;font-size: 8px;">
-						<h3><a href="quienes_somos.php">Los responsables de guiar esta iniciativa</a></h3>
-						
-					</li>
-				</ul>
-			</div>	
-		<div class="span-3 quarter last newsletter">
-				<p>Contactanos</p>
-				<ul >
-					<li style="height: 30px; text-align:center;font-size: 8px;">
-						<h3><a href="contactanos.php">Nos encantara escucharte</a></h3>
-						
-					</li>
-				</ul>				</ul>
-			</div>
-		</div>
-		
-		
-		
+<?php include('bloques/menu_inferior.php'); ?>		
 		
 	</div>	
 
