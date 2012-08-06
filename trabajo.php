@@ -1,6 +1,8 @@
 ﻿<?php
 	include("config.php");
-	include("librerias/php/aws/sdk.class.php");
+	include("clases/Log.php");
+	include("librerias/php/phpmailer/class.phpmailer.php");
+	include("clases/Mail.php");
 
 	$contenidoMail = "";
 	
@@ -11,9 +13,9 @@
 				$contenidoMail .= $key . "\n\n" . $value . "\n\n";
 		}
 		
-		$MAIL = new Mail($CONFIG_AWS);
+		$MAIL = new Mail($CONFIG);
 		
-		$MAIL->EnviarCorreo("raul.dolores@gmail.com", "TRABAJO - Inova360", $contenidoMail);
+		$MAIL->EnviarCorreo("INOVA360", "raul.dolores@gmail.com", "raul.dolores@gmail.com", "CONTACTO - Inova360", $contenidoMail);
 	}
 ?>
 
