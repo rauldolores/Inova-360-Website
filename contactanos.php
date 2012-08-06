@@ -1,6 +1,8 @@
 ﻿<?php
 	include("config.php");
-	include("librerias/php/aws/sdk.class.php");
+	include("clases/Log.php");
+	include("librerias/php/phpmailer/class.phpmailer.php");
+	include("clases/Mail.php");
 
 	$contenidoMail = "";
 	
@@ -8,12 +10,12 @@
 	{
 		foreach($_POST as $key => $value)
 		{
-				$contenidoMail .= $key . "\n\n" . $value . "\n\n";
+				$contenidoMail .= $key . "<br/><br/>" . $value . "<br/><br/>";
 		}
 		
-		$MAIL = new Mail($CONFIG_AWS);
+		$MAIL = new Mail($CONFIG);
 		
-		$MAIL->EnviarCorreo("raul.dolores@gmail.com", "CONTACTO - Inova360", $contenidoMail);
+		$MAIL->EnviarCorreo("INOVA360", "raul.dolores@gmail.com", "raul.dolores@gmail.com", "CONTACTO - Inova360", $contenidoMail);
 	}
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -54,14 +56,20 @@
 	<div style= "height: 300px; padding: 30px;">
 
 <div class="span-9 content">
+
+<form METHOD="POST" ACTION="contactanos.php">
+
 <h2>Ponte en contacto con nosotros</h2>
 <span>Jardines de la Hda., Cuautitlan Izcalli, Mexico, Mexico</span><br/><br/>
 <input type="text" name="name" id="name" placeholder="nombre" style="padding: 5px;"><br/>
-<input type="text" name="email" id="email" placeholder="email" style="padding: 5px;"><br/>
+<input type="text" name="email" id="email" type="email" placeholder="email" style="padding: 5px;"><br/>
 <input type="text" name="phone" id="phone" placeholder="telefono" style="padding: 5px;"><br/>
 <p><textarea cols="50" rows="10" name="message" id="message" style="padding: 5px;" placeholder="mensaje o razon de contacto"></textarea></p>
 
 <p><input value="Enviar datos" type="submit" style="padding: 10px;"></p>
+
+</form>
+
 </div>		
 	
 	</div>
