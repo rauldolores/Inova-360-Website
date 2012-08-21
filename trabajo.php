@@ -6,19 +6,20 @@
 
 	$contenidoMail = "";
 	
+	$resultado = false;
+
 	if($_POST)
 	{
 		foreach($_POST as $key => $value)
 		{
-				$contenidoMail .= $key . "\n\n" . $value . "\n\n";
+				$contenidoMail .= $key . "<br/><br/>" . $value . "<br/><br/>";
 		}
 		
 		$MAIL = new Mail($CONFIG);
 		
-		$MAIL->EnviarCorreo("INOVA360", "raul.dolores@gmail.com", "raul.dolores@gmail.com", "CONTACTO - Inova360", $contenidoMail);
+		$resultado = $MAIL->EnviarCorreo("INOVA360", "raul.dolores@gmail.com", "raul.dolores@gmail.com", "TRABAJO - Inova360", $contenidoMail);
 	}
 ?>
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
@@ -55,7 +56,12 @@
 	<div id="homeOptions" class="container" style="margin-top: 0px;">
 
 <br/><br/><br/>	
-<h2>Trabaja con nosotros</h2>
+<h2>Trabaja con nosotros</h2><br/>
+<?php
+		if($resultado)
+			echo "<span class='yellow' style='font-size: 16px;'>Gracias por llenar el formulario. En breve te responderemos.</span>";
+
+?><br/><br/>
 <span style="font-size: 28px;color: #4B8EFB;">
 Forma parte de un gran proyecto
 </span>
@@ -94,22 +100,23 @@ Tenemos grandes planes para ti.
 Contesta el siguiente formulario y nos pondremos en contacto contigo:
 </span>
 <br/><br/><br/>
-<form style="color: #4B8EFB; font-size: 20px;">
-<input type="text" id="txtNombre" placeholder="nombre"  style="font-size: 20px; padding: 5px; width: 400px;"><br/>
-<input type="date" id="txtEdad" placeholder="edad" style="font-size: 20px; padding: 5px; width: 200px;"><br/>
-<input type="text" id="txtFacebook" placeholder="Facebook" style="font-size: 20px; padding: 5px; width: 150px;"><br/>
-<input type="text" id="txtTwitter" placeholder="Twitter" style="font-size: 20px; padding: 5px; width: 150px;"><br/>
-<input type="tel" id="txtTelefono" placeholder="Telefono"  style="font-size: 20px; padding: 5px;"><br/>
-<input type="email" id="txtCorreo" placeholder="Email"  style="font-size: 20px; padding: 5px;width: 200px;"><br/>
-<input type="text" id="txtCiudad" placeholder="Ciudad" style="font-size: 20px; padding: 5px;"><br/>
-<input type="text" id="txtPais" placeholder="Pais" style="font-size: 20px; padding: 5px;"><br/>
-<textarea id="txtPorque" style="font-size: 20px; padding: 5px; width: 700px; height: 150px" placeholder="¿Porque quieres unirte a nuestro proyecto?"></textarea><br/><br/>
-<textarea id="txtComo" style="font-size: 20px; padding: 5px; width: 700px; height: 150px" placeholder="¿Como te ves en 3 años?"></textarea><br/><br/>
-<textarea id="txtActividades" style="font-size: 20px; padding: 5px; width: 700px; height: 150px" placeholder="¿En que actividades consideras que seria el mejor apoyo que nos puedes brindar?"></textarea><br/><br/>
-<textarea id="txtHabilidades" style="font-size: 20px; padding: 5px; width: 700px; height: 150px" placeholder="¿Principales habilidades?"></textarea><br/><br/>
-<textarea id="txtExperiencia" style="font-size: 20px; padding: 5px; width: 700px; height: 150px" placeholder="¿Cuentas con experiencia laboral?¿Cual?"></textarea><br/><br/>
-<textarea id="txtInternet" style="font-size: 20px; padding: 5px; width: 700px; height: 150px" placeholder="Conocimientos de internet y tecnologias moviles"></textarea><br/><br/>
-<button type="submit" value="Enviar solicitud" style="font-size: 20px; padding: 10px;">Enviar Solicitud</button>
+
+<form style="color: #4B8EFB; font-size: 20px;" METHOD="POST" ACTION="trabajo.php">
+<input type="text" id="txtNombre" name="txtNombre" placeholder="nombre"  style="font-size: 20px; padding: 5px; width: 400px;"><br/>
+<input type="date" id="txtEdad" name="txtEdad" placeholder="edad" style="font-size: 20px; padding: 5px; width: 200px;"><br/>
+<input type="text" id="txtFacebook" name="txtFacebook" placeholder="Facebook" style="font-size: 20px; padding: 5px; width: 150px;"><br/>
+<input type="text" id="txtTwitter" name="txtTwitter" placeholder="Twitter" style="font-size: 20px; padding: 5px; width: 150px;"><br/>
+<input type="tel" id="txtTelefono" name="txtTelefono" placeholder="Telefono"  style="font-size: 20px; padding: 5px;"><br/>
+<input type="email" id="txtCorreo" name="txtCorreo" placeholder="Email"  style="font-size: 20px; padding: 5px;width: 200px;"><br/>
+<input type="text" id="txtCiudad" name="txtCiudad" placeholder="Ciudad" style="font-size: 20px; padding: 5px;"><br/>
+<input type="text" id="txtPais" name="txtPais" placeholder="Pais" style="font-size: 20px; padding: 5px;"><br/>
+<textarea id="txtPorque" name="txtPorque" style="font-size: 20px; padding: 5px; width: 700px; height: 150px" placeholder="¿Porque quieres unirte a nuestro proyecto?"></textarea><br/><br/>
+<textarea id="txtComo" name="txtComo" style="font-size: 20px; padding: 5px; width: 700px; height: 150px" placeholder="¿Como te ves en 3 años?"></textarea><br/><br/>
+<textarea id="txtActividades" name="txtActividades" style="font-size: 20px; padding: 5px; width: 700px; height: 150px" placeholder="¿En que actividades consideras que seria el mejor apoyo que nos puedes brindar?"></textarea><br/><br/>
+<textarea id="txtHabilidades" name="txtHabilidades" style="font-size: 20px; padding: 5px; width: 700px; height: 150px" placeholder="¿Principales habilidades?"></textarea><br/><br/>
+<textarea id="txtExperiencia" name="txtExperiencia" style="font-size: 20px; padding: 5px; width: 700px; height: 150px" placeholder="¿Cuentas con experiencia laboral?¿Cual?"></textarea><br/><br/>
+<textarea id="txtInternet" name="txtInternet" style="font-size: 20px; padding: 5px; width: 700px; height: 150px" placeholder="Conocimientos de internet y tecnologias moviles"></textarea><br/><br/>
+<input value="Enviar solicitud" type="submit" style="padding: 10px;">
 </form>
 <br/><br/><br/><br/>
 	

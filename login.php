@@ -108,8 +108,8 @@ try{
     </fieldset>
     <fieldset id="actions">
         <input type="submit" id="submit" class="submit" value="Entrar">
-        <a href="">&iquest;No puedes entrar a tu cuenta?</a><br/>
-	<a href="" class="negritas">Crear una cuenta gratuita</a>
+        <a href="registro?client_id=<?php echo $_GET['client_id']; ?>&scope=<?php echo $_GET['scope']; ?>&status=<?php echo $_GET['status']; ?>&response_type=<?php echo $_GET['response_type']; ?>">&iquest;No puedes entrar a tu cuenta?</a><br/>
+	<a href="registro?client_id=<?php echo $_GET['client_id']; ?>&scope=<?php echo $_GET['scope']; ?>&status=<?php echo $_GET['status']; ?>&response_type=<?php echo $_GET['response_type']; ?>" class="negritas">Crear una cuenta gratuita</a>
     </fieldset>
 </form>
 
