@@ -6,6 +6,8 @@
 
 	$contenidoMail = "";
 	
+	$resultado = false;
+	
 	if($_POST)
 	{
 		foreach($_POST as $key => $value)
@@ -15,7 +17,7 @@
 		
 		$MAIL = new Mail($CONFIG);
 		
-		$MAIL->EnviarCorreo("INOVA360", "raul.dolores@gmail.com", "raul.dolores@gmail.com", "CONTACTO - Inova360", $contenidoMail);
+		$resultado = $MAIL->EnviarCorreo("INOVA360", "raul.dolores@gmail.com", "raul.dolores@gmail.com", "CONTACTO - Inova360", $contenidoMail);
 	}
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -60,6 +62,12 @@
 <form METHOD="POST" ACTION="contactanos.php">
 
 <h2>Ponte en contacto con nosotros</h2>
+<?php
+		if($resultado)
+			echo "<span class='yellow' style='font-size: 16px;'>Gracias por contactarnos. En breve te responderemos.</span>";
+
+?>
+<br/>
 <span>Jardines de la Hda., Cuautitlan Izcalli, Mexico, Mexico</span><br/><br/>
 <input type="text" name="name" id="name" placeholder="nombre" style="padding: 5px;"><br/>
 <input type="text" name="email" id="email" type="email" placeholder="email" style="padding: 5px;"><br/>

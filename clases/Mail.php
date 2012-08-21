@@ -6,34 +6,45 @@ class Mail
 	public $CONEXION;
 	public $LOG;
 	public $CONFIG;
-	public $AWS_KEY;
-	public $AWS_SECRET_KEY;
-	public $AWS_SES_FROM_EMAIL;
+	public $SERVIDOR;
+	public $PUERTO;
+	public $USUARIO;
+	public $PASSWORD;
+	public $MAIL;
 	
 	function __construct($config) {
-		$this->CONEXION = new Mongo();
 		$this->LOG = new Log();
-		$this->AWS_KEY = $config['AWS_KEY'];
-		$this->AWS_SECRET_KEY = $config['AWS_SECRET_KEY'];
-		$this->AWS_SES_FROM_EMAIL = $config['AWS_SES_FROM_EMAIL'];
+		$this->SERVIDOR = $config['SMTP_SERVIDOR'];
+		$this->PUERTO = $config['SMTP_PUERTO'];
+		$this->USUARIO = $config['SMTP_USUARIO'];
+		$this->PASSWORD = $config['SMTP_PASSWORD'];
+		
+		$this->MAIL = new PHPMailer();
+		$this->MAIL->IsSMTP();
+		$this->MAIL->SMTPAuth = true;
+		$this->MAIL->Host = "ssl://" . $this->SERVIDOR; // SMTP a utilizar. Por ej. smtp.elserver.com
+		$this->MAIL->Username = $this->USUARIO; // Correo completo a utilizar
+		$this->MAIL->Password = $this->PASSWORD; // Contraseña
+		$this->MAIL->Port = $this->PUERTO; // Puerto a utilizar
 	}
 
 
-
-	function EnviarCorreo($para, $asunto, $mensaje)
+	function EnviarCorreo($nombre, $desde, $para, $asunto, $mensaje)
 	{
-		$amazonSes = new AmazonSES($this->AWS_KEY, $this->AWS_SECRET_KEY);
-	 
-		$response = $amazonSes->send_email($this->AWS_SES_FROM_EMAIL,
-			array('ToAddresses' => array($para)),
-			array(
-				'Subject.Data' => $asunto,
-				'Body.Text.Data' => $mensaje,
-			)
-		);
-		if (!$response->isOK())
-		{
-			// handle error
+		$this->MAIL->SetFrom($desde, $nombre); // Desde donde enviamos (Para mostrar)
+		$this->MAIL->Sender=$desde;
+		//Estas dos líneas, cumplirían la función de encabezado (En mail() usado de esta forma: “From: Nombre <correo@dominio.com>”) de //correo.
+		$this->MAIL->AddAddress($para); // Esta es la dirección a donde enviamos
+		$this->MAIL->IsHTML(true); // El correo se envía como HTML
+		$this->MAIL->Subject = $asunto; // Este es el titulo del email.
+		$this->MAIL->MsgHTML($mensaje);
+		$exito = $this->MAIL->Send(); // Envía el correo.
+
+		//También podríamos agregar simples verificaciones para saber si se envió:
+		if($exito){
+			return true;
+		}else{
+			return false;
 		}	
 	}
 }
