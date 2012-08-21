@@ -27,26 +27,22 @@ class Usuarios{
 	}
 	
 
-	function agregar()
+	function agregar($DATOS)
 	{
-		$DATOS = array();
-		
 		try
 		{
-			$DATOS['nombre']=$this->nombre;
-			$DATOS['apellidos']=$this->apellidos;
-			$DATOS['email']=$this->email;
-			$DATOS['password']=$this->password;
-			$DATOS['fechaNacimiento']=$this->fechaNacimiento;
-			$DATOS['pais']=$this->pais;
-			$DATOS['ciudad']=$this->ciudad;
-			$DATOS['genero']=$this->genero;
+			$DATOS['nombre'] = utf8_encode($DATOS['nombre']);
+			$DATOS['apellidos'] = utf8_encode($DATOS['apellidos']);
+			$DATOS['password'] = utf8_encode($DATOS['password']);
+			$DATOS['pais'] = utf8_encode($DATOS['pais']);
+			$DATOS['ciudad'] = utf8_encode($DATOS['ciudad']);
+			$DATOS['email'] = utf8_encode($DATOS['email']);
 
 			$DB = $this->CONEXION->innet;
 			$COLECCION = $DB->usuarios;			
 			$COLECCION->insert($DATOS);
 			
-			$this->id = $DATOS["_id"];
+			return $DATOS["_id"];
 		}
 		catch(Exception $e)
 		{
