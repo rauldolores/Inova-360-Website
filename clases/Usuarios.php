@@ -75,7 +75,7 @@ class Usuarios{
 
 			Cookie::Crear('ID', $USUARIO["_id"], Cookie::UnAño);
 				
-			if(strtoupper($USUARIO["genero"]) == "HOMBRE")
+			if(strtoupper($USUARIO["genero"]) == "H")
 				$_SESSION["IMAGEN50X50"] = $this->CONFIG["RUTA_IMAGEN"] . $this->CONFIG["IMAGEN_DEFAULT_HOMBRE_50X50"];
 			else
 				$_SESSION["IMAGEN50X50"] = $this->CONFIG["RUTA_IMAGEN"] . $this->CONFIG["IMAGEN_DEFAULT_MUJER_50X50"];
@@ -125,9 +125,27 @@ class Usuarios{
 		}				
 	}
 	
-	function obtenerUsuario($email)
+	function obtenerUsuario($id)
 	{
+		$DATOS = array();		
+		try{
+			$DB = $this->CONEXION->innet;
+			$COLECCION = $DB->usuarios;			
+			$DATOS["_id"] = new MongoId($id);
+			$USUARIO = $COLECCION->findOne($DATOS);
+					
+			if(count($USUARIO) > 0)
+			{
+				return $USUARIO;
+			}
+		}
+		catch(Exception $e)
+		{
+			$this->LOG->registraLog("Usuarios", $e->getMessage(), "No existe la usuario " . $id);
+			return "";
+		}
 		
+		return "";			
 	}
 }
 

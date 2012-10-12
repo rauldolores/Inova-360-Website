@@ -57,7 +57,18 @@
 		if(isset($_SESSION['ID']))
 		{		
 	?>
-		<li class="singleLinkCliqoo"><a style="cursor: pointer;" onClick="muestraLogin();"><?php echo $_SESSION['NOMBRE']; ?></a></li>
+		<?php 
+
+		$genero = ($_SESSION['GENERO']=='H')?"male":"female";
+		$imagen_usuario=$CONFIG["DOMINIO"] . "media/imagenes/user_" . $genero . "_medium.png";
+		if(isset($_SESSION['IMAGEN_THUMB']))
+		{
+			
+		}
+		?>
+		<li class="singleLinkCliqoo"><img src="<?php echo $imagen_usuario?>" height="25" width="25" style="background-color:#999;">&nbsp;&nbsp;&nbsp;</li>
+		<li class="singleLinkCliqoo"><a style="cursor: pointer;" href="perfil.php"><?php echo $_SESSION['NOMBRE']; ?></a></li>
+		<li class="singleLinkCliqoo"><a style="cursor: pointer;" onClick="muestraLogin();">Configuracion</a></li>
 		<li class="singleLinkCliqoo"><a style="cursor: pointer;" onClick="logout();">Salir</a></li>
 		<li class="singleLinkCliqoo">
 			<span>
@@ -68,7 +79,7 @@
 	<?php
 		}else{
 	?>
-	  <li class="singleLinkCliqoo"><a class="lightboxCLIQOO punteroCLIQOO" onClick="muestraLogin();">Te explicamos mas</a></li>
+	  <li class="singleLinkCliqoo"><a class="lightboxCLIQOO punteroCLIQOO" href="registro?client_id=<?php echo $_GET['client_id'] ?>&scope=<?php echo $_GET['scope'] ?>&status=<?php echo $_GET['status'] ?>&response_type=<?php echo $_GET['response_type'] ?>">Registrate</a></li>
 	  <li class="singleLinkCliqoo"><a class="punteroCLIQOO" href="login?client_id=<?php echo $_GET['client_id'] ?>&scope=<?php echo $_GET['scope'] ?>&status=<?php echo $_GET['status'] ?>&response_type=<?php echo $_GET['response_type'] ?>">Ingresa a tu cuenta</a></li>
 	<?php
 		}

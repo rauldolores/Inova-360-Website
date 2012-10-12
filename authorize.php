@@ -17,6 +17,10 @@ $ALCANCE = $_GET['scope'];
 $ESTATUS =  $_GET['status'];
 $TIPO_RESPUESTA =  $_GET['response_type'];
 
+//Se obtienen la lista de permisos solicitados
+$_GET['client_id'] = new MongoId($_GET['client_id']);
+$alcanceSolicitado = $INOVA360->getAuthorizeParams();
+
 //Si no existe session intentamos volverla a abrir desde cookies. Es necesario haber invocado antes a session_start()
 Sesion::forzarAbrirSesion();
 
@@ -40,9 +44,18 @@ if(isset($_SESSION['ID']))
 		{			
 			//Se genera un nuevo token
 			$INOVA360->crearToken($CONSUMIDORID, "all");
+			
+			$parametros = array();
+			$parametros['user_id'] = $_SESSION['ID'];
+		    foreach ($alcanceSolicitado as $k => $v) {
+		    	$parametros[$k] = $v;
+		    }
+			$INOVA360->finishClientAuthorization(1, $parametros);
+
 			//Se redirecciona a la URL registrada
 
-			header("Location:" . $CONSUMIDOR['urlRedireccionar']);
+			//header("Location:" . $CONSUMIDOR['urlRedireccionar'] . "?user_id=" . $_SESSION['ID'] . "");
+			//header("Location:" . $CONSUMIDOR['urlRedireccionar']);
 
 		}
 		else
@@ -52,9 +65,17 @@ if(isset($_SESSION['ID']))
 			{
 				//Se genera un nuevo token
 				$INOVA360->crearToken($CONSUMIDORID, $ALCANCE);
+				
+				$parametros = array();
+				$parametros['user_id'] = $_SESSION['ID'];
+				foreach ($alcanceSolicitado as $k => $v) {
+					$parametros[$k] = $v;
+				}
+				$INOVA360->finishClientAuthorization(1, $parametros);				
+
 				//Se redirecciona a la URL registrada
 
-				header("Location:" . $CONSUMIDOR['urlRedireccionar']);			
+				//header("Location:" . $CONSUMIDOR['urlRedireccionar']);			
 			}else{
 				//Continuamos con la aplicacion mostrando el codigo html y el form de autorizacion
 			}
@@ -72,9 +93,7 @@ if ($_POST) {
 	$INOVA360->finishClientAuthorization($_POST["accept"] == "Autorizar", $_POST);
 }
 
-//Se obtienen la lista de permisos solicitados
-$_GET['client_id'] = new MongoId($_GET['client_id']);
-$alcanceSolicitado = $INOVA360->getAuthorizeParams();
+
 
 
 ?>
