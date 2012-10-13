@@ -2,6 +2,9 @@
 
 class Utilidades{
 
+
+	const ACCENT_STRINGS = 'ŠŒŽšœžŸ¥µÀÁÂÃÄÅÆÇÈÉÊË?ÌÍÎÏIÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæçèéêë?ìíîïiðñòóôõöøùúûüýÿ';
+	const NO_ACCENT_STRINGS = 'SOZsozYYuAAAAAAACEEEEEIIIIIDNOOOOOOUUUUYsaaaaaaaceeeeeiiiiionoooooouuuuyy';
 	
 	function limpiarURLCorta($cadena) {
 		
@@ -30,6 +33,55 @@ class Utilidades{
 		file_put_contents($destino, $contenido);	
 	}
 	
+	
+	static public function accentToRegex($text)
+	{
+		$from = str_split(self::ACCENT_STRINGS);
+		$to   = str_split(strtolower(self::NO_ACCENT_STRINGS));
+		$text = utf8_decode($text);
+		$regex = array();
+
+		foreach ($to as $key => $value)
+		{
+			if (isset($regex[$value]))
+			{
+				$regex[$value] .= $from[$key];
+			} else {
+				$regex[$value] = $value;
+			}
+		}
+
+		foreach ($regex as $rg_key => $rg)
+		{
+			$text = preg_replace("/[$rg]/", "_{$rg_key}_", $text);
+		}
+
+		foreach ($regex as $rg_key => $rg)
+		{
+			$text = preg_replace("/_{$rg_key}_/", "[$rg]", $text);
+		}
+
+		return utf8_encode($text);
+
+	}	
+	
+	
+	function makeRandomString($max=6) 
+	{
+		$i = 0; //Reset the counter.
+		$possible_keys = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		$keys_length = strlen($possible_keys);
+		$str = ""; //Let's declare the string, to add later.
+		while($i<$max) {
+			$rand = mt_rand(1,$keys_length-1);
+			$str.= $possible_keys[$rand];
+			$i++;
+		}
+		return $str;
+	}	
 }
+
+
+
 
 ?>
