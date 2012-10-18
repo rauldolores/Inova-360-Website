@@ -4,7 +4,55 @@ session_start();
 
 include_once('config.php');
 include_once('clases/Usuarios.php');
+include_once('clases/Utilidades.php');
 include_once('clases/Log.php');		
+
+
+   if($_SESSION['state'] && ($_SESSION['state'] === $_REQUEST['state'])) {
+     // state variable matches
+     $token_url = "https://graph.facebook.com/oauth/access_token?"
+       . "client_id=" . $app_id . "&redirect_uri=" . urlencode($my_url)
+       . "&client_secret=" . $app_secret . "&code=" . $code;
+
+     $response = file_get_contents($token_url);
+     $params = null;
+     parse_str($response, $params);
+	 
+     $_SESSION['access_token'] = $params['access_token'];
+
+     $graph_url = "https://graph.facebook.com/me?access_token=" . $params['access_token'];
+     $user = json_decode(file_get_contents($graph_url));
+     
+	 $datosFecha = explode("/",$user->birthday);
+	 
+	 $graph_url2 = "https://api.facebook.com/method/fql.query?query=SELECT%20current_location%20FROM%20user%20WHERE%20uid=4&access_token=" . $params['access_token'];
+	 $user2 = json_decode(file_get_contents($graph_url2));
+	 
+	 $UTILIDADES = new Utilidades();	
+	 
+	$DATOS = array();
+	$DATOS['nombre']=$user->first_name;
+	$DATOS['apellidos']=$user->last_name;
+	$DATOS['email']=$user->email;
+	$DATOS['password']="";
+	$DATOS['fechaNacimiento']=$datosFecha[1] . "/" . $datosFecha[0] . "/" . $datosFecha[2];
+	$DATOS['pais']=$user2->hometown_location->country;
+	$DATOS['ciudad']=$UTILIDADES->limpiarURLCorta($user->hometown);
+	$DATOS['genero']= ($user->gender == "male") ? "H":"M";
+
+	$USUARIO->agregar($DATOS);	 
+
+	//USUARIO EXISTENTE Y QUE YA SE HA FIRMADO CON FACEBOOK
+	//Validar si existe un usuario con este ID de Facebook y se obtienen los datos y se abre session, se actualiza la imagen	
+	//USUARIO EXISTENTE Y QUE NO SE HA FIRMADO CON FACEBOOK
+	//Validar si existe alguien con el email de facebook, actualizar datos, obtener datos de autentificacion y login
+	//USUARIO QUE NO EXISTE
+	//Se agregan sus datos a la base sin password y login
+	
+	
+   }
+
+
 
 if(!isset($_GET['client_id']) || !isset($_GET['scope']) || !isset($_GET['status']) || !isset($_GET['response_type']))
 	die("Error");
@@ -91,11 +139,93 @@ try{
 
 </head>
 <body>
+<div id="fb-root"></div>
+<script>
+/*
+  // Additional JS functions here
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '182913701726754', // App ID
+      channelUrl : '//www.konocelocal.com/channel.html', // Channel File
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow the server to access the session
+      xfbml      : true  // parse XFBML
+    });
+
+    // Additional init code here
+
+  };
+
+  // Load the SDK Asynchronously
+  (function(d){
+     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement('script'); js.id = id; js.async = true;
+     js.src = "//connect.facebook.net/en_US/all.js";
+     ref.parentNode.insertBefore(js, ref);
+   }(document));
+   
+   
+function login() {
+
+	// Additional init code here
+	FB.getLoginStatus(function(response) {
+		if (response.status === 'connected') {
+			// connected
+			testAPI();
+		} else if (response.status === 'not_authorized') {
+			// not_authorized
+			ventanaLogin();
+			alert('b');
+		} else {
+			// not_logged_in
+			ventanaLogin();
+			alert('c');
+		}
+	});
+}
+
+function testAPI() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', function(response) {
+        console.log('Good to see you, ' + response.email + '.');
+    });
+}
+
+function ventanaLogin()
+{
+    FB.login(function(response) {
+        if (response.authResponse) {
+            // connected 
+			alert('conectado');
+        } else {
+            // cancelled
+			alert('no conectado');
+        }
+    });
+}
+
+
+// Additional init code here
+/*FB.getLoginStatus(function(response) {
+    if (response.status === 'connected') {
+        // connected
+    } else if (response.status === 'not_authorized') {
+        // not_authorized
+        login();
+    } else {
+        // not_logged_in
+        login();
+    }
+});
+};*/
+</script>
 
 <div  id="login">
 
 <form id="frmLogin" method="POST" action="">
-    <h1>Entra a tu cuenta <img src="media/imagenes/logo.gif" height="40" width="115"></h1>
+
+    <h1><img src="media/imagenes/logo.gif" height="80" width="230"><br>Entra a tu cuenta</h1>
 <?php if($mensaje != ""){ ?>
 <div style="padding: 20px; width: 360px;;" class="warning">
 <?php echo $mensaje ?>
@@ -104,17 +234,17 @@ try{
     <fieldset id="inputs">
         <input id="email" name="email" type="email" placeholder="Email" autofocus required>
         <input id="password" name="password" type="password" placeholder="Password" required><br/>
-	<input id="recordar" name="recordar" value="1" type="checkbox" style="width: auto;"> <label for = "recordar">No cerrar sesi&oacute;n</label>
+	<input id="recordar" name="recordar" value="1" type="checkbox" style="width: auto;"> <label for = "recordar">Mantener la sesi&oacute;n</label>
     </fieldset>
     <fieldset id="actions">
         <input type="submit" id="submit" class="submit" value="Entrar">
-        <a href="registro?client_id=<?php echo $_GET['client_id']; ?>&scope=<?php echo $_GET['scope']; ?>&status=<?php echo $_GET['status']; ?>&response_type=<?php echo $_GET['response_type']; ?>">&iquest;No puedes entrar a tu cuenta?</a><br/>
-	<a href="registro?client_id=<?php echo $_GET['client_id']; ?>&scope=<?php echo $_GET['scope']; ?>&status=<?php echo $_GET['status']; ?>&response_type=<?php echo $_GET['response_type']; ?>" class="negritas">Crear una cuenta gratuita</a>
+        <a href="registro?client_id=<?php echo $_GET['client_id']; ?>&scope=<?php echo $_GET['scope']; ?>&status=<?php echo $_GET['status']; ?>&response_type=<?php echo $_GET['response_type']; ?>" style="font-size: 14px;">&iquest;No puedes entrar a tu cuenta?</a><br/>
+	<a href="registro?client_id=<?php echo $_GET['client_id']; ?>&scope=<?php echo $_GET['scope']; ?>&status=<?php echo $_GET['status']; ?>&response_type=<?php echo $_GET['response_type']; ?>" class="negritas" style="font-size: 14px;">Crear una cuenta gratuita</a>
     </fieldset>
 </form>
 
 <br/><br/>
-<a id="fb-connect" class="login-btn" href="/oauth_fb.php"></a>
+<a id="fb-connect" class="login-btn" href="/oauth_fb.php?client_id=<?php echo $_GET['client_id']; ?>&scope=<?php echo $_GET['scope']; ?>&status=<?php echo $_GET['status']; ?>&response_type=<?php echo $_GET['response_type']; ?>" ></a>
 
 </div>
 
