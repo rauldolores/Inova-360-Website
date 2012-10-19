@@ -49,6 +49,23 @@ class Usuarios{
 			$LOG->registra("Usuarios", $e->getMessage(), json_encode($DATOS));	
 		}
 	}
+	
+	
+	function editar($CONDICION, $DATOS)
+	{
+		try
+		{
+			$DB = $this->CONEXION->innet;
+			$COLECCION = $DB->usuarios;			
+
+			$COLECCION->update($CONDICION, array( '$set' => $DATOS));
+		}
+		catch(Exception $e)
+		{
+			$LOG->registra("Usuarios", $e->getMessage(), json_encode($DATOS));	
+		}
+	}
+	
 
 	function login()
 	{
@@ -147,6 +164,28 @@ class Usuarios{
 		
 		return "";			
 	}
+	
+	
+	function obtenerUsuarioFiltros($DATOS)
+	{
+		try{
+			$DB = $this->CONEXION->innet;
+			$COLECCION = $DB->usuarios;			
+			$USUARIO = $COLECCION->findOne($DATOS);
+					
+			if(count($USUARIO) > 0)
+			{
+				return $USUARIO;
+			}
+		}
+		catch(Exception $e)
+		{
+			$this->LOG->registraLog("Usuarios", $e->getMessage(), "No existe la usuario " . $id);
+			return "";
+		}
+		
+		return "";			
+	}	
 }
 
 ?>

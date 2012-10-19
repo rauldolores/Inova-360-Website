@@ -7,52 +7,101 @@ include_once('clases/Usuarios.php');
 include_once('clases/Utilidades.php');
 include_once('clases/Log.php');		
 
+   $app_id = "182913701726754";
+   $app_secret = "d16923f2f43b0a2902bc8900459881ee";
+   $my_url = "http://www.inova360local.com/login?client_id=" . $_GET['client_id'] . "&scope=" . $_GET['scope'] . "&status=" . $_GET['status'] . "&response_type=" . $_GET['response_type'];
+   $code = $_GET['code'];
+   
+   $USUARIO = new Usuarios();	
 
-   if($_SESSION['state'] && ($_SESSION['state'] === $_REQUEST['state'])) {
-     // state variable matches
-     $token_url = "https://graph.facebook.com/oauth/access_token?"
-       . "client_id=" . $app_id . "&redirect_uri=" . urlencode($my_url)
-       . "&client_secret=" . $app_secret . "&code=" . $code;
-
-     $response = file_get_contents($token_url);
-     $params = null;
-     parse_str($response, $params);
-	 
-     $_SESSION['access_token'] = $params['access_token'];
-
-     $graph_url = "https://graph.facebook.com/me?access_token=" . $params['access_token'];
-     $user = json_decode(file_get_contents($graph_url));
-     
-	 $datosFecha = explode("/",$user->birthday);
-	 
-	 $graph_url2 = "https://api.facebook.com/method/fql.query?query=SELECT%20current_location%20FROM%20user%20WHERE%20uid=4&access_token=" . $params['access_token'];
-	 $user2 = json_decode(file_get_contents($graph_url2));
-	 
-	 $UTILIDADES = new Utilidades();	
-	 
-	$DATOS = array();
-	$DATOS['nombre']=$user->first_name;
-	$DATOS['apellidos']=$user->last_name;
-	$DATOS['email']=$user->email;
-	$DATOS['password']="";
-	$DATOS['fechaNacimiento']=$datosFecha[1] . "/" . $datosFecha[0] . "/" . $datosFecha[2];
-	$DATOS['pais']=$user2->hometown_location->country;
-	$DATOS['ciudad']=$UTILIDADES->limpiarURLCorta($user->hometown);
-	$DATOS['genero']= ($user->gender == "male") ? "H":"M";
-
-	$USUARIO->agregar($DATOS);	 
-
-	//USUARIO EXISTENTE Y QUE YA SE HA FIRMADO CON FACEBOOK
-	//Validar si existe un usuario con este ID de Facebook y se obtienen los datos y se abre session, se actualiza la imagen	
-	//USUARIO EXISTENTE Y QUE NO SE HA FIRMADO CON FACEBOOK
-	//Validar si existe alguien con el email de facebook, actualizar datos, obtener datos de autentificacion y login
-	//USUARIO QUE NO EXISTE
-	//Se agregan sus datos a la base sin password y login
+	if(isset($_SESSION['state']) && isset($_REQUEST['state']))
+	{
 	
-	
-   }
+	   if($_SESSION['state'] && ($_SESSION['state'] === $_REQUEST['state'])) {
+			 // state variable matches
+			 $token_url = "https://graph.facebook.com/oauth/access_token?"
+			   . "client_id=" . $app_id . "&redirect_uri=" . urlencode($my_url)
+			   . "&client_secret=" . $app_secret . "&code=" . $code;
 
+			 $response = file_get_contents($token_url);
+			 $params = null;
+			 parse_str($response, $params);
+			 
+			 $_SESSION['access_token'] = $params['access_token'];
 
+			 $graph_url = "https://graph.facebook.com/me?access_token=" . $params['access_token'];
+			 $user = json_decode(file_get_contents($graph_url));
+			 
+			 $datosFecha = explode("/",$user->birthday);
+			 
+			 $graph_url2 = "https://api.facebook.com/method/fql.query?query=SELECT%20current_location%20FROM%20user%20WHERE%20uid=4&access_token=" . $params['access_token'];
+			 $user2 = json_decode(file_get_contents($graph_url2));
+			 
+			 $UTILIDADES = new Utilidades();	
+			 
+			
+			$CONDICION_BUSQUEDA = array();
+			$CONDICION_BUSQUEDA['facebookUsuario']=$user->username;
+			$resultadoBusqueda = $USUARIO->obtenerUsuarioFiltros($CONDICION_BUSQUEDA);
+
+			//Nuca se ha firmado con facebook
+			if($resultadoBusqueda == "")
+			{
+				//buscar por email
+				unset($CONDICION_BUSQUEDA);
+				$CONDICION_BUSQUEDA = array();
+				$CONDICION_BUSQUEDA['email']=$user->email;
+				$resultadoBusqueda = $USUARIO->obtenerUsuarioFiltros($CONDICION_BUSQUEDA);
+				
+				//No esta registrado el usuario en Inova 360
+				if($resultadoBusqueda == "")
+				{
+					//se agrega el usuario y login
+					$DATOS = array();
+					$DATOS['nombre']=$user->first_name;
+					$DATOS['apellidos']=$user->last_name;
+					$DATOS['email']=$user->email;
+					$DATOS['password']="";
+					$DATOS['fechaCreacion']=time();
+					$DATOS['facebookUsuario']=$user->username;
+					$DATOS['fechaNacimiento']=$datosFecha[1] . "/" . $datosFecha[0] . "/" . $datosFecha[2];
+					$DATOS['pais']=$user2->hometown_location->country;
+					$DATOS['ciudad']=$UTILIDADES->limpiarURLCorta($user->hometown);
+					$DATOS['genero']= ($user->gender == "male") ? "H":"M";
+
+					$idUsuario = $USUARIO->agregar($DATOS);	 				
+					$USUARIO->forzarLogin($idUsuario);
+					
+					header("Location: authorize?client_id={$_GET['client_id']}&scope={$_GET['scope']}&status={$_GET['status']}&response_type={$_GET['response_type']}");
+				}
+				//Ya esta registrado el usuario pero no tiene una cuenta de facebook asociada
+				else
+				{
+					//se relaciona el usuario de facebook con la cuenta inova360 y login
+					$DATOS = array();
+					$DATOS['facebook_usuario']=$user->username;
+
+					$CONDICION = array();
+					$CONDICION['_id'] = new MongoId($resultadoBusqueda['_id']);
+
+					$idUsuario = $USUARIO->editar($CONDICION, $DATOS);	 				
+					$USUARIO->forzarLogin($resultadoBusqueda['_id']);
+					
+					header("Location: authorize?client_id={$_GET['client_id']}&scope={$_GET['scope']}&status={$_GET['status']}&response_type={$_GET['response_type']}");					
+				}
+			}
+			//Se ha firmado con facebook anteriormente
+			else
+			{
+				//actualizo los datos y login
+				$USUARIO->forzarLogin($resultadoBusqueda['_id']);
+				header("Location: authorize?client_id={$_GET['client_id']}&scope={$_GET['scope']}&status={$_GET['status']}&response_type={$_GET['response_type']}");									
+			}
+		
+		
+	   }
+
+	}
 
 if(!isset($_GET['client_id']) || !isset($_GET['scope']) || !isset($_GET['status']) || !isset($_GET['response_type']))
 	die("Error");
@@ -69,7 +118,7 @@ try{
 		$LOG = new Log();
 		try
 		{
-			$USUARIO = new Usuarios();		
+			
 			$USUARIO->email = $_POST['email'];
 			$USUARIO->password = $_POST['password'];
 			$USUARIO->CONFIG = $CONFIG;
