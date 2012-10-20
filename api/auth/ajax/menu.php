@@ -61,9 +61,9 @@
 
 		$genero = ($_SESSION['GENERO']=='H')?"male":"female";
 		$imagen_usuario=$CONFIG["DOMINIO"] . "media/imagenes/user_" . $genero . "_medium.png";
-		if(isset($_SESSION['IMAGEN_THUMB']))
+		if(isset($_SESSION['FACEBOOKID']))
 		{
-			
+			$imagen_usuario="https://graph.facebook.com/" . $_SESSION['FACEBOOKID'] . "/picture";
 		}
 		?>
 		<li class="singleLinkCliqoo"><img src="<?php echo $imagen_usuario?>" height="25" width="25" style="background-color:#999;">&nbsp;&nbsp;&nbsp;</li>

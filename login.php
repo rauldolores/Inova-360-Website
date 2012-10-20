@@ -41,7 +41,7 @@ include_once('clases/Log.php');
 			 
 			
 			$CONDICION_BUSQUEDA = array();
-			$CONDICION_BUSQUEDA['facebookUsuario']=$user->username;
+			$CONDICION_BUSQUEDA['facebook_usuario']=$user->username;
 			$resultadoBusqueda = $USUARIO->obtenerUsuarioFiltros($CONDICION_BUSQUEDA);
 
 			//Nuca se ha firmado con facebook
@@ -63,7 +63,7 @@ include_once('clases/Log.php');
 					$DATOS['email']=$user->email;
 					$DATOS['password']="";
 					$DATOS['fechaCreacion']=time();
-					$DATOS['facebookUsuario']=$user->username;
+					$DATOS['facebook_usuario']=$user->username;
 					$DATOS['fechaNacimiento']=$datosFecha[1] . "/" . $datosFecha[0] . "/" . $datosFecha[2];
 					$DATOS['pais']=$user2->hometown_location->country;
 					$DATOS['ciudad']=$UTILIDADES->limpiarURLCorta($user->hometown);
@@ -71,7 +71,6 @@ include_once('clases/Log.php');
 
 					$idUsuario = $USUARIO->agregar($DATOS);	 				
 					$USUARIO->forzarLogin($idUsuario);
-					
 					header("Location: authorize?client_id={$_GET['client_id']}&scope={$_GET['scope']}&status={$_GET['status']}&response_type={$_GET['response_type']}");
 				}
 				//Ya esta registrado el usuario pero no tiene una cuenta de facebook asociada
@@ -184,6 +183,40 @@ try{
 }
 
 
+.fb-connect-button:before {
+    background: url("media/imagenes/sprites.png?v=5") repeat scroll 0 0%, -moz-linear-gradient(#698DA9, #466B8B) repeat scroll 0 0 transparent;
+    border-radius: 3px 0 0 3px;
+    border-right: 1px solid #456178;
+    box-shadow: 0 1px rgba(255, 255, 255, 0.3) inset, 1px 0 0 #89B4DC;
+    content: "";
+    float: left;
+    height: 38px;
+    margin-right: 10px;
+    width: 45px;
+}
+
+.fb-connect-button {
+    background: -moz-linear-gradient(#77A9D7, #548BC6) repeat scroll 0 0 transparent !important;
+    border: 1px solid #47637A !important;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 1px rgba(255, 255, 255, 0.3) inset, 1px 0 0 #89B4DC, 0 1px 3px #CCCCCC;
+    color: #FFFFFF;
+    display: block;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif !important;
+    font-size: 17px !important;
+    font-weight: bold;
+    height: 40px !important;
+    line-height: 38px;
+    margin: 0 !important;
+    overflow: hidden;
+    padding: 0 !important;
+    position: relative;
+    text-align: left;
+    text-shadow: 0 1px #333333 !important;
+    width: 100% !important;
+}
+
+
 </style>
 
 </head>
@@ -274,12 +307,18 @@ function ventanaLogin()
 
 <form id="frmLogin" method="POST" action="">
 
-    <h1><img src="media/imagenes/logo.gif" height="80" width="230"><br>Entra a tu cuenta</h1>
+
 <?php if($mensaje != ""){ ?>
 <div style="padding: 20px; width: 360px;;" class="warning">
 <?php echo $mensaje ?>
 </div>
 <?php } ?>
+<a class="fb-connect-button" href="/oauth_fb.php?client_id=<?php echo $_GET['client_id']; ?>&scope=<?php echo $_GET['scope']; ?>&status=<?php echo $_GET['status']; ?>&response_type=<?php echo $_GET['response_type']; ?>">Entra con tu cuenta de Facebook</a>
+<br/><br/>
+<h1>O utiliza tu cuenta Inova360<br><br/>
+<img src="media/imagenes/logo.gif" height="80" width="230">
+</h1>
+<br/>
     <fieldset id="inputs">
         <input id="email" name="email" type="email" placeholder="Email" autofocus required>
         <input id="password" name="password" type="password" placeholder="Password" required><br/>
@@ -291,9 +330,6 @@ function ventanaLogin()
 	<a href="registro?client_id=<?php echo $_GET['client_id']; ?>&scope=<?php echo $_GET['scope']; ?>&status=<?php echo $_GET['status']; ?>&response_type=<?php echo $_GET['response_type']; ?>" class="negritas" style="font-size: 14px;">Crear una cuenta gratuita</a>
     </fieldset>
 </form>
-
-<br/><br/>
-<a id="fb-connect" class="login-btn" href="/oauth_fb.php?client_id=<?php echo $_GET['client_id']; ?>&scope=<?php echo $_GET['scope']; ?>&status=<?php echo $_GET['status']; ?>&response_type=<?php echo $_GET['response_type']; ?>" ></a>
 
 </div>
 

@@ -58,7 +58,7 @@ class Usuarios{
 			$DB = $this->CONEXION->innet;
 			$COLECCION = $DB->usuarios;			
 
-			$COLECCION->update($CONDICION, array( '$set' => $DATOS));
+			$COLECCION->update($CONDICION, array( '$set' => $DATOS), array("upsert" => true));
 		}
 		catch(Exception $e)
 		{
@@ -88,6 +88,7 @@ class Usuarios{
 			$_SESSION["PAIS"] = $USUARIO["pais"];
 			$_SESSION["CIUDAD"] = $USUARIO["ciudad"];
 			$_SESSION["GENERO"] = $USUARIO["genero"];
+			$_SESSION["FACEBOOKID"] = $USUARIO["facebook_usuario"];
 			$_SESSION["NOMBRE"] = $USUARIO["nombre"] . " " . $USUARIO["apellidos"];
 
 			Cookie::Crear('ID', $USUARIO["_id"], Cookie::UnAño);
@@ -120,11 +121,12 @@ class Usuarios{
 				return false;
 			
 			//Iniciar sesion
-			$_SESSION["ID"] = $USUARIO["_id"];
+			$_SESSION["ID"] = $USUARIO["_id"]->__toString();
 			$_SESSION["EMAIL"] = $USUARIO["email"];
 			$_SESSION["PAIS"] = $USUARIO["pais"];
 			$_SESSION["CIUDAD"] = $USUARIO["ciudad"];
 			$_SESSION["GENERO"] = $USUARIO["genero"];
+			$_SESSION["FACEBOOKID"] = $USUARIO["facebook_usuario"];
 			$_SESSION["NOMBRE"] = $USUARIO["nombre"] . " " . $USUARIO["apellidos"];
 
 			Cookie::Crear('ID', $USUARIO["_id"], Cookie::UnAño);
