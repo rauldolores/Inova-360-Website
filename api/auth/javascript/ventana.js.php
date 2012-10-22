@@ -54,7 +54,10 @@
 		
 			$('#box').html('<p style="color: #fff; font-size: 18px; text-align: center;">Espera un segundo...</p>');
 			$('.box').animate({'opacity':'0.90', 'width': width, 'height': height, 'left': ($(document).width() / 2) - (width / 2)}, 100, 'linear' , function (){ 
-				$.getJSON(url, function(data){ $('#box').html(data);   });
+				$.getJSON(url, function(data){ 
+					$('#box').html(data);
+					$('[placeholder]').delay(800).blur();
+				});
 			});			
 		}
 		

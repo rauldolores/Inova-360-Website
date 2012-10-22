@@ -57,7 +57,6 @@ class Usuarios{
 		{
 			$DB = $this->CONEXION->innet;
 			$COLECCION = $DB->usuarios;			
-
 			$COLECCION->update($CONDICION, array( '$set' => $DATOS), array("upsert" => true));
 		}
 		catch(Exception $e)

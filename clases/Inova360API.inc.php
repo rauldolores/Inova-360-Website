@@ -42,7 +42,6 @@ class Inova360API extends OAuth2 {
 
   public function validarConsumidor($client_id, $user_id)
   {
-    echo $client_id . " - " . $user_id . "<br>";
     $client = $this->db->tokens->findOne(array("consumidorId" => new MongoId($client_id), "usuarioId" => new MongoId($user_id)));
     return $client !== NULL;
   }  

@@ -91,7 +91,7 @@ include_once('clases/Log.php');
 			}
 			//Se ha firmado con facebook anteriormente
 			else
-			{
+			{			
 				//actualizo los datos y login
 				$USUARIO->forzarLogin($resultadoBusqueda['_id']);
 				header("Location: authorize?client_id={$_GET['client_id']}&scope={$_GET['scope']}&status={$_GET['status']}&response_type={$_GET['response_type']}");									
