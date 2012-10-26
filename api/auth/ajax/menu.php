@@ -68,7 +68,7 @@
 		?>
 		<li class="singleLinkCliqoo"><img src="<?php echo $imagen_usuario?>" height="25" width="25" style="background-color:#999;">&nbsp;&nbsp;&nbsp;</li>
 		<li class="singleLinkCliqoo"><a style="cursor: pointer;" href="perfil.php"><?php echo $_SESSION['NOMBRE']; ?></a></li>
-		<li class="singleLinkCliqoo"><a style="cursor: pointer;" onClick="muestraLogin();">Configuracion</a></li>
+		<li class="singleLinkCliqoo"><a style="cursor: pointer;" onClick="mostrarSlideLateralDer();">Configuracion</a></li>
 		<li class="singleLinkCliqoo"><a style="cursor: pointer;" onClick="logout();">Salir</a></li>
 		<li class="singleLinkCliqoo">
 			<span>
