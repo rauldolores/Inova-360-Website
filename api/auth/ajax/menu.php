@@ -16,7 +16,18 @@
 	<div style="float:left;">
 	<ul>
 	  <li class="singleLinkCliqoo"><img src="<?php echo $CONFIG["DOMINIO"]; ?>api/auth/imagenes/cliqoo.png">&nbsp;&nbsp;&nbsp;</li>
-	  <li class="singleLinkCliqoo"><a target="_blank" href="#">Ideas que cambian al mundo</a></li>
+	<?php
+		if(isset($_SESSION['ID']))
+		{		
+	?>	  
+		<li class="singleLinkCliqoo"><a target="_blank" href="#">Ideas que cambian al mundo</a></li>
+	<?php
+		}else{
+	?>	
+		<li class="singleLinkCliqoo"><a target="_blank" href="#">Ideas que cambian al mundo</a></li>
+	<?php
+		}
+	?>	
 	  <!--
 	  <li class="singleLinkCliqoo"><a target="_blank" href="http://orkut.com">Oficina</a></li>
 	  <li class="singleLinkCliqoo"><a target="_blank" href="http://gmail.com">Escuela</a></li>
@@ -66,6 +77,9 @@
 			$imagen_usuario="https://graph.facebook.com/" . $_SESSION['FACEBOOKID'] . "/picture";
 		}
 		?>
+		<li class="singleLinkCliqoo" style="margin-right: 20px;">
+			<a style="cursor: pointer; background-color: #D00; padding: 5px; color: #fff; padding-left: 10px; padding-right: 10px;" onClick="alert('Debe ir un sidebox con la lista de avisos.');">0</a>
+		</li>
 		<li class="singleLinkCliqoo"><img src="<?php echo $imagen_usuario?>" height="25" width="25" style="background-color:#999;">&nbsp;&nbsp;&nbsp;</li>
 		<li class="singleLinkCliqoo"><a style="cursor: pointer;" href="perfil.php"><?php echo $_SESSION['NOMBRE']; ?></a></li>
 		<li class="singleLinkCliqoo"><a style="cursor: pointer;" onClick="mostrarSlideLateralDer();">Configuracion</a></li>
