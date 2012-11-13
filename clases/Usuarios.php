@@ -87,7 +87,9 @@ class Usuarios{
 			$_SESSION["PAIS"] = $USUARIO["pais"];
 			$_SESSION["CIUDAD"] = $USUARIO["ciudad"];
 			$_SESSION["GENERO"] = $USUARIO["genero"];
-			$_SESSION["FACEBOOKID"] = $USUARIO["facebook_usuario"];
+			$_SESSION["FOURSQUARE_TOKEN"] = isset($USUARIO["foursquare_token"])?$USUARIO["foursquare_token"]:'';
+			$_SESSION["FACEBOOK_TOKEN"] = isset($USUARIO["facebook_token"])?$USUARIO["facebook_token"]:'';
+			$_SESSION["FACEBOOKID"] = isset($USUARIO["facebook_usuario"])?$USUARIO["facebook_usuario"]:'';
 			$_SESSION["NOMBRE"] = $USUARIO["nombre"] . " " . $USUARIO["apellidos"];
 
 			Cookie::Crear('ID', $USUARIO["_id"], Cookie::UnAño);
@@ -125,7 +127,9 @@ class Usuarios{
 			$_SESSION["PAIS"] = $USUARIO["pais"];
 			$_SESSION["CIUDAD"] = $USUARIO["ciudad"];
 			$_SESSION["GENERO"] = $USUARIO["genero"];
-			$_SESSION["FACEBOOKID"] = $USUARIO["facebook_usuario"];
+			$_SESSION["FOURSQUARE_TOKEN"] = isset($USUARIO["foursquare_token"])?$USUARIO["foursquare_token"]:'';
+			$_SESSION["FACEBOOK_TOKEN"] = isset($USUARIO["facebook_token"])?$USUARIO["facebook_token"]:'';
+			$_SESSION["FACEBOOKID"] = isset($USUARIO["facebook_usuario"])?$USUARIO["facebook_usuario"]:'';
 			$_SESSION["NOMBRE"] = $USUARIO["nombre"] . " " . $USUARIO["apellidos"];
 
 			Cookie::Crear('ID', $USUARIO["_id"], Cookie::UnAño);

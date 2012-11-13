@@ -13,7 +13,7 @@
 
 	 $response = file_get_contents($token_url);
 	 $params = null;
-	 parse_str($response, $params);
+	 $params = json_decode($response);
 
 	 $USUARIOS = new Usuarios();
 	 
@@ -22,9 +22,9 @@
 	$CONDICION = array();
 	$CONDICION['_id'] = new MongoId($_SESSION["ID"]);	 
 	 
-	 $USUARIOS->editar($CONDICION, array("foursquare_token" => $params['access_token']));
+	 $USUARIOS->editar($CONDICION, array("foursquare_token" => $params->access_token));
 	 
-	 $_SESSION['access_token_foursquare'] = $params['access_token'];	
+	 $_SESSION['foursquare_token'] = $params->access_token;	
 
 	 
 	 header("Location: " . $_SESSION['urlRedireccion'] . "?login=ok");

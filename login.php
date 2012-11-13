@@ -27,7 +27,12 @@ include_once('clases/Log.php');
 			 $params = null;
 			 parse_str($response, $params);
 			 
-			 $_SESSION['access_token'] = $params['access_token'];
+			 $_SESSION['FACEBOOK_TOKEN'] = $params['access_token'];
+			 
+			$CONDICION = array();
+			$CONDICION['_id'] = new MongoId($_SESSION["ID"]);	 
+			 
+			$USUARIOS->editar($CONDICION, array("facebook_token" => $params['access_token']));
 
 			 $graph_url = "https://graph.facebook.com/me?access_token=" . $params['access_token'];
 			 $user = json_decode(file_get_contents($graph_url));

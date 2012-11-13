@@ -20,7 +20,7 @@
 		if(isset($_SESSION['ID']))
 		{		
 	?>	  
-		<li class="singleLinkCliqoo"><a target="_blank" href="#">Mis aplicaciones</a></li>
+		<li class="singleLinkCliqoo"><a target="_blank" href="#">Mi Espacio</a></li>
 	<?php
 		}else{
 	?>	
