@@ -38,6 +38,20 @@ class Lugares{
 		}
 	}
 	
+	function editar($CONDICION, $DATOS)
+	{
+		try
+		{
+			$DB = $this->CONEXION->innet;
+			$COLECCION = $DB->lugares;			
+			$COLECCION->update($CONDICION, array( '$set' => $DATOS));
+		}
+		catch(Exception $e)
+		{
+			$LOG->registra("Lugares", $e->getMessage(), json_encode($DATOS));	
+		}
+	}	
+	
 	
 	
 	function lista($FILTRO)
@@ -84,5 +98,27 @@ class Lugares{
 			$LOG->registra("Lugares", $e->getMessage(), json_encode($DATOS));	
 		}					
 	}
+	
+	function buscar($CONDICION)
+	{
+		$DATOS = array();
+
+		try
+		{		
+			$DB = $this->CONEXION->innet;
+			$COLECCION = $DB->lugares;			
+			$LUGAR = $COLECCION->findOne($CONDICION);
+					
+			if(!count($LUGAR))
+				return false;
+				
+				
+			return $LUGAR;
+		}
+		catch(Exception $e)
+		{
+			$LOG->registra("Lugares", $e->getMessage(), json_encode($DATOS));	
+		}					
+	}		
 }
 

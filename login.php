@@ -9,7 +9,7 @@ include_once('clases/Log.php');
 
    $app_id = "182913701726754";
    $app_secret = "d16923f2f43b0a2902bc8900459881ee";
-   $my_url = "http://www.inova360local.com/login?client_id=" . $_GET['client_id'] . "&scope=" . $_GET['scope'] . "&status=" . $_GET['status'] . "&response_type=" . $_GET['response_type'];
+   $my_url = $CONFIG["DOMINIO"] . "/login?client_id=" . $_GET['client_id'] . "&scope=" . $_GET['scope'] . "&status=" . $_GET['status'] . "&response_type=" . $_GET['response_type'];
    $code = $_GET['code'];
    
    $USUARIO = new Usuarios();	
@@ -19,20 +19,13 @@ include_once('clases/Log.php');
 	
 	   if($_SESSION['state'] && ($_SESSION['state'] === $_REQUEST['state'])) {
 			 // state variable matches
-			 $token_url = "https://graph.facebook.com/oauth/access_token?"
-			   . "client_id=" . $app_id . "&redirect_uri=" . urlencode($my_url)
-			   . "&client_secret=" . $app_secret . "&code=" . $code;
+			 $token_url = "https://graph.facebook.com/oauth/access_token?" . "client_id=" . $app_id . "&redirect_uri=" . urlencode($my_url) . "&client_secret=" . $app_secret . "&code=" . $code;
 
 			 $response = file_get_contents($token_url);
 			 $params = null;
 			 parse_str($response, $params);
 			 
 			 $_SESSION['FACEBOOK_TOKEN'] = $params['access_token'];
-			 
-			$CONDICION = array();
-			$CONDICION['_id'] = new MongoId($_SESSION["ID"]);	 
-			 
-			$USUARIOS->editar($CONDICION, array("facebook_token" => $params['access_token']));
 
 			 $graph_url = "https://graph.facebook.com/me?access_token=" . $params['access_token'];
 			 $user = json_decode(file_get_contents($graph_url));
@@ -48,6 +41,11 @@ include_once('clases/Log.php');
 			$CONDICION_BUSQUEDA = array();
 			$CONDICION_BUSQUEDA['facebook_usuario']=$user->username;
 			$resultadoBusqueda = $USUARIO->obtenerUsuarioFiltros($CONDICION_BUSQUEDA);
+			
+			$CONDICION = array();
+			$CONDICION['_id'] = new MongoId($resultadoBusqueda['_id']);	 
+			 
+			$USUARIO->editar($CONDICION, array("facebook_token" => $params['access_token']));			
 
 			//Nuca se ha firmado con facebook
 			if($resultadoBusqueda == "")
