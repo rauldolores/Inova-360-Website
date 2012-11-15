@@ -183,6 +183,28 @@ class Ciudades{
 		
 		return false;
 	}
+	
+	function buscar($CONDICION)
+	{
+		$DATOS = array();
+
+		try
+		{		
+			$DB = $this->CONEXION->innet;
+			$COLECCION = $DB->ciudades;			
+			$LUGAR = $COLECCION->findOne($CONDICION);
+					
+			if(!count($LUGAR))
+				return false;
+				
+				
+			return $LUGAR;
+		}
+		catch(Exception $e)
+		{
+			$LOG->registra("Ciudades", $e->getMessage(), json_encode($DATOS));	
+		}					
+	}			
 
 }
 

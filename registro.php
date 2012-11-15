@@ -62,8 +62,8 @@ $mensaje = "";
 		$filtro['pais'] = new MongoRegex("/" . $_POST['txtPais'] . "/i");
 		$datos = $PAIS->lista($filtro);
 		$datos = iterator_to_array($datos);
-		print_r($datos);
-		echo $datos[0]['pais'];
+		
+		
 		if(count($datos) == 0)
 		{
 			$mensaje = "Al parecer escribiste mal el nombre del pais. Por favor validalo.";
@@ -97,7 +97,9 @@ $mensaje = "";
 			$DATOS['password']=$_POST['txtPassword'];
 			$DATOS['fechaNacimiento']=$_POST['txtFechaNacimiento'];
 			$DATOS['pais']=$_POST['txtPais'];
-			$DATOS['ciudad']=$_POST['txtCiudad'];
+			$DATOS['ciudad']=array('nombre' => $_POST['txtCiudad'],
+								   'id' => ''
+								);
 			$DATOS['genero']=$_POST['txtGenero'];	
 
 			$USUARIO->agregar($DATOS);
