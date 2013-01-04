@@ -1,6 +1,6 @@
 (function($) {
 	$.zoom = function() {
-		$('body').append('<div id="zoom"><a class="close"></a><a href="#previous" class="previous"></a><a href="#next" class="next"></a><div class="content loading"></div></div>');
+		$('body').append('<div id="zoom"><a class="close"></a><a href="#previous" class="previous"></a><a href="#next" class="next"></a><div class="content loading"></div><div id="inova360MenuIzquierda" style="position: fixed; height: 100%; background-color: #000; width: 0px; z-index: 10000; right: 0px; padding: 20px; opacity: 0.0; top: 0px;"></div></div>');
 		var zoom = $('#zoom'),
 		    zoomContent = $('#zoom .content'),
 		    zoomedIn = false,
@@ -96,6 +96,10 @@
 			    imageWidth = image.width(),
 			    imageHeight = image.height();
 				mostrarSlideLateralDer();
+				
+				$('#idImagen').val(openedImage.attr('id'));
+				CargaComentariosImagen();
+				
 			if (imageWidth == zoomContent.width() && imageWidth <= maxImageWidth && imageHeight == zoomContent.height() && imageHeight <= maxImageHeight) {
 					show(image);
 					return;
