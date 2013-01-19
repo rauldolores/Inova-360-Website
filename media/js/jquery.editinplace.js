@@ -283,6 +283,10 @@ $.extend(InlineEditor.prototype, {
 		// Somehow the browsers don't like to select the instructional choice (disabled) in that case
 		if (editor.val() !== initialValue)
 			editor.val(''); // selects instructional choice
+			
+		var text = editor.val();
+		text = text.replace(/<br>/g, "");
+		editor.val(text);
 	},
 	
 	inputNameAndClass: function() {
@@ -638,6 +642,11 @@ function hasContent(something) {
 		return false;
 	
 	return true;
+}
+
+function nl2br (str, is_xhtml) {
+    var breakTag = (is_xhtml || typeof is_xhtml === 'undefined') ? '<br />' : '<br>';
+    return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1' + breakTag + '$2');
 }
 
 })(jQuery);
