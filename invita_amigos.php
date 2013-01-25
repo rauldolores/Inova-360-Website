@@ -72,6 +72,30 @@
 }
 
 
+.inplace_save, .inplace_cancel {
+	background:#25A6E1;
+	background:-moz-linear-gradient(top,#25A6E1 0%,#188BC0 100%);
+	background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#25A6E1),color-stop(100%,#188BC0));
+	background:-webkit-linear-gradient(top,#25A6E1 0%,#188BC0 100%);
+	background:-o-linear-gradient(top,#25A6E1 0%,#188BC0 100%);
+	background:-ms-linear-gradient(top,#25A6E1 0%,#188BC0 100%);
+	background:linear-gradient(top,#25A6E1 0%,#188BC0 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#25A6E1',endColorstr='#188BC0',GradientType=0);
+	padding:5px 4px;
+	color:#fff;
+	font-family:'Helvetica Neue',sans-serif;
+	font-size:17px;
+	border-radius:4px;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border:1px solid #1A87B9
+}
+
+li{
+list-style: none;
+}
+
+
 </style>
 
 </head>
@@ -84,12 +108,52 @@
 <form id="frmLogin" method="POST" action="">
 
 
-<a class="fb-connect-button" href="#" onClick="FacebookInviteFriends(); return false;">Invita a tus amigos de facebook</a>
+<a class="fb-connect-button" href="#" onClick="FacebookInviteFriends(); return false;">Invita a tus amigos de Facebook</a>
 <br/><br/>
 <h1>O invita a tus amigos de Inova360</h1>
 <br/>
 </form>
-<div style="height: 300px; border: 1px solid #666;">
+<div style="height: 300px; border: 1px solid #666;" >
+
+<div>
+<input id="txtDireccion" type="text" value="" name="txtDireccion" style="width: 310px; margin: 0px;" placeholder="Nombre del invitado">
+<button class="inplace_save" value="">Invitar</button>
+</div>
+
+<div style="overflow: auto; height: 260px;" >
+
+ <ul>
+	<li>
+		<input type="checkbox", id="something", checked="checked" />
+		<label for="something">Familiares</label>
+		<ul>
+			<li><input type="checkbox" style="margin: 3px;" checked="checked" /><img src="https://irs1.4sqi.net/img/user/64x64/CVVUEGMOPAHDVYR4.jpg" height="20" width="20"><a href="#">  Diana Castillo</a></li>
+			<li><input type="checkbox" style="margin: 3px;" checked="checked" /><a href="some/link">Some Text</a></li>
+			<li><input type="checkbox" style="margin: 3px;" checked="checked" /><a href="some/link">Some Text</a></li>
+		</ul>
+	</li>
+	<li>
+		<input type="checkbox", id="something", checked="checked" />
+		<label for="something">Mejores Amigos</label>
+		<ul>
+			<li><input type="checkbox" style="margin: 3px;" checked="checked" /><a href="some/link">Some Text</a></li>
+			<li><input type="checkbox" style="margin: 3px;" checked="checked" /><a href="some/link">Some Text</a></li>
+			<li><input type="checkbox" style="margin: 3px;" checked="checked" /><a href="some/link">Some Text</a></li>
+		</ul>
+	</li>
+
+	<li>
+		<input type="checkbox", id="something", checked="checked" />
+		<label for="something">Otros amigos</label>
+		<ul>
+			<li><input type="checkbox" style="margin: 3px;" checked="checked" /><a href="some/link">Some Text</a></li>
+			<li><input type="checkbox" style="margin: 3px;" checked="checked" /><a href="some/link">Some Text</a></li>
+			<li><input type="checkbox" style="margin: 3px;" checked="checked" /><a href="some/link">Some Text</a></li>
+		</ul>
+	</li>
+	
+</ul>
+</div>
 
 </div>
 
